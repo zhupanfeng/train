@@ -1,0 +1,55 @@
+cms api接口文档
+
+统一入口：http://localhost:3000/api
+
+获取管理员列表的接口文档
+        地址：  /manage/
+        请求方式：get
+        请求示例：http://localhost:3000/api/manage/
+        返回数据如下：
+                    {code；1，data:{"username":"admin"},{"username":"admin"}}
+
+添加管理员列表的接口文档
+        地址：  /manage/add
+        请求方式：post
+        请求示例：http://localhost:3000/api/manage/add
+        请求参数：username  password  rpassword
+        返回数据如下：
+                    {
+                        "code": 0,
+                        "message": "此用户已存在，请更换一个用户名"
+                    }
+                    {
+                        "code": 1,
+                        "message": "恭喜您，添加用户名成功！"
+                    }
+        
+更新管理员列表的接口文档
+        地址：  /manage/edit
+        请求方式：post
+        请求示例：http://localhost:3000/api/manage/edit
+        请求参数：id  username  password  rpassword
+        返回数据如下：
+                    {
+                        "code": 1,
+                        "message": "恭喜您，更改密码成功"
+                    }
+                    {
+                        "code": 0,
+                        "message": "密码不能为空!"
+                    }
+
+删除管理员列表的接口文档
+        地址：  /manage/remove
+        请求方式：get
+        请求示例：http://localhost:3000/api/manage/remove
+        请求参数：id  collection
+        返回数据如下：
+                    {
+                        "code": 1,
+                          message:"删除成功!",
+                    }
+                    {
+                        "code": 0,
+                         message:"删除失败",
+                    }                   
