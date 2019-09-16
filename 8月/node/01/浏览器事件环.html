@@ -1,0 +1,112 @@
+<!-- <script>
+    // 异步宏任务1
+    setTimeout(() => {
+    console.log('setTimeout1');
+    // 异步微任务3
+    Promise.resolve().then(data => {
+        console.log('then3');
+    });
+},1000);
+
+//异步 微任务1
+Promise.resolve().then(data => {
+    console.log('then1');
+});
+// 异步微任务2
+Promise.resolve().then(data => {
+    console.log('then2');
+//异步宏任务2
+    setTimeout(() => {
+        console.log('setTimeout2');
+    },1000);
+});
+
+console.log(2);
+2--then1--then2--setTimeout1--then3--setTimeout2
+</script> -->
+ 
+
+
+ <!-- <script>
+
+     setTimeout(() => {
+        console.log(2);
+        Promise.resolve().then(() => {
+            console.log(6);
+        });
+    }, 0);
+
+    Promise.resolve(3).then((data) => {
+        console.log(data);  	
+        return data + 1;
+    }).then((data) => {
+        console.log(data)		
+        setTimeout(() => {
+            console.log(data + 1)	
+            return data + 1;
+        }, 1000)
+    }).then((data) => {
+        console.log(data);		
+    });
+    //  3--4--undefined--2--6--5
+ </script> -->
+
+ <!-- <script>
+      setTimeout(() => {
+        console.log(1);
+        Promise.resolve().then(data => {
+            console.log(2);
+        });
+    }, 0);
+    Promise.resolve().then(data => {
+        console.log(3);
+        setTimeout(() => {
+            console.log(4)
+        }, 0);
+    });
+    console.log('start');
+
+    // start  3 1 2 4
+ </script> -->
+
+
+ <!-- <script>
+      setTimeout(function () {
+        console.log(1);
+        Promise.resolve().then(function () {
+            console.log(2);
+        }); 
+    }); 
+    setTimeout(function () {
+        console.log(3);
+    }); 
+    Promise.resolve().then(function () {
+        console.log(4);
+    }); 
+    console.log(5);
+
+    // 5 4 1 2 3
+ </script> -->
+
+ <!-- <script>
+     setTimeout(() => {
+        console.log('A');
+    }, 0);
+    var obj = {
+        func: function () {
+            setTimeout(function () {
+                console.log('B')
+            }, 0);
+            return new Promise(function (resolve) {
+                console.log('C');
+                resolve();
+            })
+        }
+    };
+    obj.func().then(function () {
+        console.log('D')
+    });
+    console.log('E');
+
+    // C E D A B
+ </script> -->

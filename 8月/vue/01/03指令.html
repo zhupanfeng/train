@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="app">
+       
+        <!-- template不能绑定key -->
+        <!-- <template v-for=" i in 3" :key="i">
+            <div>{{i}}</div>
+        </template> -->
+
+        <!-- key值要唯一 -->
+        <!-- <template v-for="i in 3">
+            <div :key="i+'_1'">{{i}}</div>
+            <div :key="`${i}_2`">{{i}}</div>
+        </template> -->
+
+        <!-- key可以区分元素 -->
+        <!-- <div v-if="flag">
+            <span>李四</span>
+            <input  type="text" key="1">
+        </div>
+        <div v-else>
+                <span>张三</span>
+                <input type="text" key="2">
+        </div> -->
+
+        <!-- 尽量不要使用index做为key，index会在数据变化时产生一些问题， -->
+        <!-- 如果有唯一标示，尽量使用唯一 -->
+        <!-- key中数据变了会重新去渲染dom -->
+        <!-- <li key="0">1</li>
+        <li key="1">2</li>
+        <li key="2">3</li>
+
+        <li key="0">4</li>
+        <li key="1">3</li>
+        <li key="2">2</li> -->
+
+        <!-- 只是移动dom -->
+        <!-- <li key="li">1</li>
+        <li key="si">2</li>
+        <li key="ki">3</li>
+
+        <li key="ki">4</li>
+        <li key="li">3</li>
+        <li key="si">2</li> -->
+    </div>
+</body>
+<script>
+    let vm=new Vue({
+        el:"#app",
+        data:{
+            flag:true
+        },
+    })
+</script>
+</html>

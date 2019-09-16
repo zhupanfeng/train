@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 要在视图中使用数据，数据必须放在data中 -->
+        <!-- {{ info.xxx }} -->
+        <!-- 不能显示 -->
+        {{ info.address }}
+        <!-- {{ arr }} -->
+    </div>
+</body>
+<script>
+    // vue是数据驱动视图
+    let vm=new Vue({
+        el:"#app",
+        data:{
+            info:{xxx:"xxxxx"},
+            // arr:[1,2,3]
+        },
+    })
+
+    // vm.arr=[7,7,7]
+    // 数据写在外面不能得到
+    // vm.info.xxx="hello"
+    // vm.info.address="my"
+
+    // vm.info={address:"hello",xx:"xxxx"}
+
+    // vm.$set(vm.info,"address","abc")
+</script>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">获取数据</button>
+</body>
+</html>
+<script>
+    // 不使用ajax发出请求，使用script标签中src发出请求
+    let btn=document.getElementById("btn");
+     btn.onclick=function(){
+        // addScript("http://localhost:3030/test.js")
+        // addScript("http://localhost:3030/jsonp")
+        addScript("http://localhost:3030/jsonp?callback=f1")
+    }
+    // 定义一个函数
+    function f1(res){
+        console.log(res)
+    }
+
+    function addScript(src){
+        // 创建script标签
+        let script=document.createElement("script");
+        script.src=src;//把http://localhost:3030/test.js给script的src，
+        // src就可以发出请求
+        document.body.appendChild(script)
+    }
+</script>

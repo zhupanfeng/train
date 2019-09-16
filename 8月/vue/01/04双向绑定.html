@@ -1,0 +1,56 @@
+<!-- 单项绑定：单项数据变化，视图更新 -->
+<!-- 双向绑定：视图更新也会影响数据变化 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- v-model是 @input+ :value的语法糖 -->
+        <!-- <input type="text" :value="msg" @input="e=>msg=e.target.value">
+        {{msg}} -->
+
+        <!-- 不只输入框，常见的表单项也可以进行双向绑定 -->
+        <select v-model="selectValue">
+                <option value="0" disabled>请选择</option>
+                <option v-for="(list,key) in lists" :value="list.id">{{list.value}}</option>
+        </select>
+        {{selectValue}}
+        <hr>
+        男：<input type="radio" v-model="radioValue" value="男">
+        女：<input type="radio" v-model="radioValue" value="女">
+        <br>
+        {{radioValue}}
+        <hr>
+        <input type="checkbox" v-model="checkValue">{{checkValue}}
+        <hr>
+        游泳：<input type="checkbox" v-model="checkValues" value="游泳">
+        健身：<input type="checkbox" v-model="checkValues" value="健身">
+        {{checkValues}}
+    </div>
+</body>
+<script>
+    let vm = new Vue({
+        el: "#app",
+        data: {
+            checkValues:[],
+            checkValue:true,
+            radioValue:'男',
+            // msg:'hello',
+            selectValue: [],
+            lists: [{ value: '菜单1', id: 1 },
+                    { value: '菜单2', id: 2 },
+                    { value: '菜单3', id: 3 },
+                    ]
+        },
+    }).$mount('#app')
+</script>
+
+</html>

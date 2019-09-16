@@ -1,0 +1,27 @@
+let express = require('express');
+let app = express();
+
+// 在后端配置，让所有的人都可以访问我的api接口
+app.use('*', function (req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    res.header('Access-Control-Allow-Methods', '*');
+    res.header('Content-Type', 'application/json;charset=utf-8');
+    next();
+});
+
+// 当访问 localhost:3000/role时，给客户端返回menuList
+app.get('/role', (req, res) => {
+    res.json({
+        menuList: [
+            { pid: -1, path: '/cart', name: '购物车', id: 1, auth: 'cart' },
+            { pid: 1, path: '/cart/cart-list', name: '购物车列表', id: 4, auth: 'cart-list' },
+            { pid: 4, path: '/cart/cart-list/lottery', auth: 'lottery', id: 5, name: '彩票' },
+            { pid: 4, path: '/cart/cart-list/product', auth: 'product', id: 6, name: '商品' },
+            { pid: -1, path: '/shop', name: '商店', id: 2, auth: 'shop' },
+            { pid: -1, path: '/profile', name: '个人中心', id: 3, auth: 'profile' },
+            { pid: -1, path: '/hello', name: 'Hello', id: 7, auth: 'hello' },
+        ],
+    })
+})
+app.listen(9999);

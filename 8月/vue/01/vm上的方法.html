@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- {{arr}} -->
+
+        {{info}}
+    </div>
+</body>
+<script>
+    let vm=new Vue({
+        el:"#app",
+        data:{
+            // arr:[1,2,3,4]
+
+            info:{xxx:'ccc'},
+        }
+    });
+
+//     console.log(vm.$el.innerHTML);// [1,2,3,4]    
+  
+    // console.log(vm.$options);
+
+
+    // 数据获取视图是批量操作
+// vm.arr=[3,4,5];
+// vm.arr=[6,7,8,9];
+// 获取视图上的数据还是老数据
+// console.log(vm.$el.innerHTML)//[1,2,3,4]
+// 打印出vm上所有挂载项 
+// console.log(vm.$options);
+
+// vm.arr=[3,4,5];
+// vm.arr=[6,7,8,9];
+// 当视图数据批量更新后，自动调用
+// vm.$nextTick(()=>{
+//     console.log(vm.$el.innerHTML);//[6,7,8,9]
+//     console.log(vm.$options);
+// })
+
+vm.$watch('info.xxx',function(newValue,oldValue){
+    console.log(newValue,oldValue);//{"xxx":"ccc"}
+})
+</script>
+</html>

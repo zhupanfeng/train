@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+<!-- 计算属性有缓存，方法没有 -->
+<body>
+    <div id="app">
+        {{fullName}}
+        <!-- {{fullName}}
+        {{fullName}}
+        {{fullName}} -->
+
+        <!-- {{getFullName()}}
+        {{getFullName()}}
+        {{getFullName()}} -->
+    </div>
+</body>
+<script>
+    let vm =new Vue({
+        el:"#app",
+        data:{
+            firstName:'张',
+            lastName:'三',
+            msg:"hello",
+            fullName:''
+        },
+        mounted(){
+            this.getFullName();
+        },
+        watch:{
+            // firstName(){
+            //     this.getFullName();
+            // },
+            // lastName(){
+            //     this.getFullName();
+            // }
+                // watch支持异步
+            firstName:{
+                handler(newValue){
+                   setTimeout(()=>{
+                    this.getFullName();
+                   },10000)
+                },
+                immediate:true
+            },
+            lastName(){
+                this.getFullName(); 
+            }
+        },
+        methods:{
+            getFullName(){
+                 this.fullName=this.firstName+this.lastName
+            }
+        },
+
+        // computed:{
+        //     fullName(){
+        //         console.log(this.msg)//hello
+        //         return this.firstName+this.lastName//张三
+        //     }
+        // },
+    })
+</script>
+</html>

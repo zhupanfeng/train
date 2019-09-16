@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="app">
+            {{info.address}}
+    </div>
+</body>
+<script>
+    let vm=new Vue({
+        el:"#app",
+        data:{
+            msg:'hello',
+            info:{xxx:"ccc"},
+        },
+    })
+    // vm.info.address='hello'//无结果
+
+    // vm.info={address:'会水电',xxx:'jjj'}//会水电
+    // vm.info.address='hello'//hello
+
+    // 如果只想新增一个属性
+    // vm.$set(vm.info,'address','abc');//abc
+
+</script>
+</html>
