@@ -1,0 +1,7 @@
+#! /usr/bin/env node
+ //console.log("create server")
+
+
+ //import commander from "commander"
+
+require("../dist/main.js")
