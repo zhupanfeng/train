@@ -1,0 +1,39 @@
+<script>
+
+    // 选择排序
+    // let arry=[5,4,3,2,1];
+    // let minindex ,temp;
+    // for(let i=0;i<arry.length;i++)
+    // {
+    //     index=i;
+    //     for(let j=i+1;j<arry.length;j++)
+    //     if(arry[j]<arry[index])
+    //     {
+    //         index=j;
+    //     }
+    //     temp=arry[i];
+    //     arry[i]=arry[index];
+    //     arry[index]=temp;
+    // }
+    // console.log(arry);
+
+    // 冒泡排序
+
+    let arr=[5,4,3,2,1];
+    for(let i=0;i<arr.length;i++)
+    {
+        for(let j=0;j<arr.length-i-1;j++)
+        {
+        if(arr[j]>arr[j+1])
+            {
+            let temp=arr[j+1];
+            arr[j+1]=arr[j];
+            arr[j]=temp;
+             }
+        
+        }
+    }
+    console.log(arr)
+        
+</script>
+

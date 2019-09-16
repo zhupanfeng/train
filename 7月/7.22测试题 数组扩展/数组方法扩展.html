@@ -1,0 +1,268 @@
+<script>
+    // 方法也是函数，只不过写在对象里的函数叫方法
+    // 实例方法、类方法
+    // 实例方法：挂到对象上的方法
+    // 类方法：挂到类上的方法
+
+    // Array.isArray:判断一个数据是否是数组
+
+    // let arr=[1,2,3];
+    // console.log(Array.isArray(arr));//true
+
+//     function f(...args){
+//             console.log(arguments);
+//             // arguments不是真实的数组，长得像，类数组，伪数组{0:1,1:2,2:3}
+//             console.log(Array.isArray(arguments));//false
+//             // rest是一个真正的数组
+//             console.log(Array.isArray(args));//true
+//     }
+// f(1,2,3)
+</script>
+<script>
+    // forEach对数组循环
+
+    // let arr=[1,2,3];
+    // arr.forEach(function(item,index,arry){
+    //     console.log(index);//索引
+    //     console.log(`下标为${index}的元素的值为${item}`);
+    //     console.log(arr);
+    //     // 当修改了item的值，原数组的值不受影响
+    //     item=666;
+    //     console.log(item);
+    //     console.log(arr);
+
+    // })
+
+</script>
+<script>
+    // // map:对原来数组进行处理，返回一个新数组
+
+    // let arr=[1,2,3];
+    // // let newArr=arr.map(function(item){
+      
+    // //     return item+1;
+    // // })
+
+    // let newArr=arr.map(item=>item+1);
+    // console.log(newArr)
+</script>
+<script>
+    // let arr=[
+    //     {name:"z3",score:60},
+    //     {name:"l4",score:70},
+    //     {name:"w5",score:80},
+    //     {name:"n6",score:90},
+    // ];
+    // let newArr=arr.map(function(item){
+    //     return item.score=item.score+9;
+    // })
+    // console.log(newArr)
+</script>
+<script>
+    // 模拟map，自己写一个mymap
+
+    // let arr1=[1,2,3]
+    // Array.prototype.Mymap=function(f){
+    //     var newArray=[];
+    //     for(let i=0;i<this.length;i++){
+    //         newArray.push(f(this[i],i,this))
+    //     }
+    //     return newArray;
+    // }
+
+    // let newArr=arr1.Mymap(function(item,index,arr){
+    //     return item+1;
+    // })    
+    // console.log(newArr)
+    // let arr=[3,3,3,3]
+    // Array.prototype.Mymap=function(f){
+    //     var newArray=[];
+    //     for(let i=0;i<this.length;i++){
+    //     newArray.push(f(this[i],i,this))
+    //  }
+    //  return newArray;
+    // }
+
+    // let newArr=arr.Mymap(function(item,index,arr){
+    //     return item+2;
+    // })
+    // console.log(newArr);
+</script>
+<script>
+    // 模拟Map
+//    let arr=[6,6,6]
+//    Array.prototype.Mymap=function(f){
+//        let newArray=[];
+//        for(let i=0;i<this.length;i++){
+//            newArray.push(f(this[i],i,this))
+//        }
+//        return newArray;
+//    }
+//    let newArr=arr.Mymap(function(item,index,arr){
+//        return item+3
+//    });
+//    console.log(newArr)
+</script>
+<script>
+    // // filter:把原数组过滤成我们需要的，再组成新数组
+    // let arr=[1,2,3,4,5,6,7,8,9,10]
+    // // let newArr=arr.filter(function(item,index,arr){
+    // //     return item>5
+    // // })
+    // let newArr=arr.filter(item=>item>5)
+    // console.log(newArr)
+</script>
+<script>
+    // let arr=[1,2,3,4,5,6,7,8,9]
+    // Array.prototype.MyFilter=function(f){
+    //     let newArray=[]
+    //     for(let i=0;i<this.length;i++){
+    //         if(f(this[i])){
+    //             newArray.push(this[i])
+    //         }
+    //     }
+    //     return newArray;
+    // }
+    // let newArr=arr.MyFilter(function(item){
+    //     return item>5
+    // })
+    // console.log(newArr)
+</script>
+<script>
+    // reduce:不断的对前一项和后一项进行运算，返回
+
+    // let arr=[1,2,3,4,5,6,7,8,9]
+    // let sum=0;
+    // let i=0;
+    // sum=arr.reduce(function(prev,next){
+    //     console.log(`第${i++}轮：前一项：${prev},下一项：${next}`)
+    //     console.info(`本轮结果是${prev+next}`)
+    //     return prev+next;
+    // },100)
+    // console.log(sum)
+</script>
+<script>
+//     let arr=[
+//         {name:"z3",score:66},
+//         {name:"l4",score:77},
+//         {name:"w5",score:88},
+//     ]
+//     // prev.next表示数组中的每一个对象
+//     let obj=arr.reduce(function(prev,next){
+//         return {score:prev.score+next.score}
+//     }) 
+//     console.log(obj)
+//     // 解构赋值
+//     // let {score}=arr.reduce(function(prev,next){
+//     //     return {score:prev.score+next.score}
+//     // })
+//    console.log(score)
+</script>
+<script>
+    // some：当有一个元素满足条件就返回true
+    // let arr=[
+    //      {name:"z3",score:66},
+    //      {name:"l4",score:77},
+    //      {name:"w5",score:88},
+    // ]
+    // // 是否有人及格
+    // let r=arr.some(function(item){
+    //     return item.score>=60
+    // })
+    // console.log(r)//true
+</script>
+<script>
+    // every:只有每一个元素都满足条件才true
+    // let arr=[
+    //      {name:"z3",score:66},
+    //      {name:"l4",score:77},
+    //      {name:"w5",score:88},
+    // ]
+    // // 是否有大于70的
+    // let r=arr.every(function(item){
+    //     return item.score>70
+    // })
+    // console.log(r)//false
+</script>
+    <!-- <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+<script>
+    // from:把类数组转变成真数组
+    let lis=document.getElementsByTagName("li")
+    console.log(lis)
+    console.log(Array.isArray(lis))//判断是否是数组false
+    let newLis=Array.from(lis)
+    console.log(newLis)
+    console.log(Array.isArray(newLis))//true
+</script> -->
+<script>
+    // function f(){
+    //     console.log(arguments)
+    //     console.log(Array.isArray(arguments))
+    //     let newAr=Array.from(arguments)
+    //     console.log(newAr)
+    //     console.log(Array.isArray(newAr))
+    // }
+    // f(1,2,3)
+</script>
+<script>
+    // function f(){
+    //     let newArr=Array.from(arguments,function(item,index){
+    //         return item+1
+    //     })
+    //     console.log(newArr)
+    // }
+    // f(1,2,3)
+</script>
+<script>
+    // find:找到符合条件的元素，默认找到第一个
+
+    // let arr = [
+    //      { name: "z3", score: 66 },
+    //      { name: "l4", score: 57 },
+    //      { name: "w5", score: 88 },
+    //  ]
+    //  let rs=arr.find(function(item){
+    //      return item.score==57
+    //  })
+    //  console.log(rs)
+</script>
+<script>
+    // findIndex:找到符合条件元素的下标
+    // let arr = [
+    //      { name: "z3", score: 66 },
+    //      { name: "l4", score: 57 },
+    //      { name: "w5", score: 88 },
+    //  ]
+    //  let r=arr.findIndex(function(item){
+    //      return item.score==57
+    //  })
+    //  console.log(r)//1
+</script>
+<script>
+    // includes:判断一个元素是否在一个数组中
+    // let arr=[1,2,3]
+    // let r=arr.includes(2)
+    // console.log(r)//true
+</script>
+<script>
+    // fill:给数组填充指定的值
+    // let arr=new Array(1,2,3)
+    // new Array(10)//表示创建一个长度为10的空数组
+    //let arr=new Array(3)
+    // let arr=[1,2,3]
+    // arr.fill("*",0,2)//包前不包后
+    //console.log(arr)
+</script>
+<script>
+    // 结构赋值
+    // {}只能放键值对，如果键和值一样，可以只写一个
+    // 对象时属性的无序集合
+
+    coonsole.log(Math.ceil(1.1))//向上取正
+    coonsole.log(Math.floor(1.1))//向下取正
+    coonsole.log(Math.random(1.1))//随机数
+</script>

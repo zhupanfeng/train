@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <p>实现回车录入：</p>
+        <!-- <input type="text" @keyup="f1"> -->
+        <!-- 按回车才会 -->
+        <!-- <input type="text" @keyup.enter="f1"> -->
+        <!-- <input type="text" @keyup.space="f1"> -->
+        <!-- <input type="text" @keyup.up="f1"> -->
+        <!-- enter键码13 -->
+        <!-- <input type="text" @keyup.13="f1"> -->
+
+        <input type="text" @keyup="f($event)">
+
+    </div>
+</body>
+<script>
+    let app=new Vue({
+        el:"#app",
+        data:{
+
+        },
+        methods:{
+            f(e){
+                if(e.keyCode==13){
+                    alert("录入成功")
+                }
+            },
+            f1(){
+                alert("录入成功")
+            }
+        }
+    })
+</script>
+</html>

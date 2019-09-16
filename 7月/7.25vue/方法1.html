@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <table border="1">
+            <tr>
+                <th>姓名</th>
+                <th v-for="(value,key,index) in subjects">{{value}}</th>
+                <th>总分</th>
+            </tr>
+            <tr v-for="(value,key,index) in scores">
+                <td>{{value.name}}</td>
+                <td v-for="(value,key,index) in value.score">{{value}}</td>
+                <td>{{getSumScore(value.score)}}</td>
+            </tr>
+            <h1>所有同学的总分：{{getSumScoreAll()}}</h1>
+            <h3>语文平均分：{{getChAvg()}}</h3>
+            <h3>数学平均分：{{ getSXAvg() }}</h3>
+            <h3>英语平均分：{{ getYYAvg() }}</h3>
+        </table>
+
+    </div>
+    <script>
+        let app=new Vue({
+            el:"#app",
+            data:{
+                subjects:["语文","数学","英语"],
+                scores:[
+                    {name:"z1",score:[1,2,3]},
+                    {name:"g2",score:[2,2,3]},
+                    {name:"h4",score:[4,2,3]},
+                    {name:"j7",score:[6,2,3]},
+                ]
+            },
+            methods:{
+                // 计算每一个同学的总分
+                getSumScore(arr){
+                    return arr.reduce((prev,next)=>prev+next)
+                },
+                // 计算所有同学的总分
+                getSumScoreAll(){let sum=0
+                    // forEach循环遍历
+                    this.scores.forEach(item=>{
+                        sum+=this.getSumScore(item.score)
+                    })
+                    return sum;
+                },
+                getAvg(index){
+                    let arr=this.scores.map(item=>item.score[index])
+                    return this.getSumScore(arr)/this.scores.length;
+                },
+                // 语文平均分
+                getChAvg(){
+                    return this.getAvg(0)
+                },
+                // 数学的平均分
+                getSXAvg() {
+                    return this.getAvg(1)
+                },
+                // 英语的平均分
+                getYYAvg() {
+                    return this.getAvg(2)
+                }
+            }
+        })
+    </script>
+</body>
+</html>

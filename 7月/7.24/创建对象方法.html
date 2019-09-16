@@ -1,0 +1,127 @@
+<!-- 字母量方法创建 -->
+
+<script>
+    // let obj={
+    //     name:"wangcai",
+    //     say:function(){
+    //         // console.log(obj.name)
+    //         // 在方法中访问name 在一个方法，访问一个对象的属性，使用this,来访问
+    //         console.log(this.name)
+    //     }
+    // }
+    // obj.say()
+</script>
+<script>
+    //  创建一个矩形对象，属性有宽度和高度，方法有求周长和面积
+    // let rect={
+    //     width:10,
+    //     height:20,
+    //     getC:function(){
+    //         return (this.width+this.height)*2
+    //     },
+    //     getS:function(){
+    //         return this.width*this.height
+    //     }
+    // }
+    // console.log(rect.getC())//60
+    // console.log(rect.getS())//200
+    // 不足之处：要一个对象就需要写一个
+
+
+</script>
+<script>
+    // // 利用工厂模式创建对象 工厂利用一个函数来模拟
+    // function factory(w,h){
+    //     //批量生产矩形对象
+    //     let obj={}
+    //     obj.width=w;
+    //     obj.height=h;
+    //     obj.getC=function(){
+    //         return (this.width+this.height)*2
+    //     }
+    //     obj.getS=function(){
+    //         return this.width*this.height
+    //     }
+    //     return obj;
+    // }
+    // let r1=factory(1,2)
+    // let r2=factory(2,3)
+    // let r3=factory(3,4)
+    // console.log(r1.getC())
+    // console.log(r1.getS())
+    // console.log(r2.getC())
+    // console.log(r2.getS())
+    // console.log(r3.getC())
+    // console.log(r3.getS())
+    // // 利用工厂，可以批量生产对象
+</script>
+<script>
+    // 构造器模式 函数 new 函数
+    // 工厂模式 函数 直接调用函数
+    function F() {
+
+    }
+    // 不加new的效果
+    // let obj=F();
+    // console.log(obj)//undefined
+    // console.log(typeof obj)//undefined
+
+    // 加new的效果
+    // let obj=new F();
+    // console.log(obj)//F {}
+    // console.log(typeof obj)//object
+
+    // 加new后做了四件事
+    // 1、创建一个对象 let o={}
+    // 2、F.call(o)
+    // 3、o.__proto__=F.prototype
+    // 4、return o返回对象
+</script>
+<script>
+    // 利用构造器模式优化工厂模式
+    // 构造器
+
+    // function Rect(w, h) {
+    //     this.width = w;
+    //     this.height = h;
+    //     this.getC = function () {
+    //         return (this.width + this.height) * 2
+    //     }
+    //     this.getS = function () {
+    //         return this.width * this.height
+    //     }
+    // }
+    // // r1 r2 r3都有getC和getS 造成内存空间的浪费
+    // let r1 = new Rect(1, 2);
+    // let r2 = new Rect(2, 3);
+    // let r3 = new Rect(3, 4);
+    // console.log(r1.getC()) // 6
+    // console.log(r1.getS())  // 2
+    // console.log(r2.getC()) // 10
+    // console.log(r2.getS()) // 6
+    // console.log(r3.getC()) // 14
+    // console.log(r3.getS()) // 12
+</script>
+<script>
+    // 构造器+原型
+    function Rect(w,h){
+        this.width=w;
+        this.height=h;
+    }
+    Rect.prototype.getC=function(){
+        return (this.width + this.height) * 2
+    }
+    Rect.prototype.getS=function(){
+        return this.width * this.height
+    }
+    // r1  r2  r3都有getC和getS  造成内存空间的浪费
+    let r1 = new Rect(1, 2);
+    let r2 = new Rect(2, 3);
+    let r3 = new Rect(3, 4);
+    console.log(r1.getC()) // 6
+    console.log(r1.getS())  // 2
+    console.log(r2.getC()) // 10
+    console.log(r2.getS()) // 6
+    console.log(r3.getC()) // 14
+    console.log(r3.getS()) // 12
+</script>

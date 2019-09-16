@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+    <style>
+        *{margin:0;}
+        .main{
+            width: 400px;
+            /* height: 200px; */
+            border: 1px solid green;
+        }
+        .main h1{
+            height: 40px;
+            background-color: skyblue;
+        }
+        .content{
+            background-color: pink;
+        }
+        span{
+            font-size: 14px;
+            color: red;
+            float: right;
+            margin-right: 25px;
+            height: 40px;
+            line-height: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="main">
+            <h1>标题
+                <span v-on:click="isshow=!isshow">{{isshow? "收起":"展开"}}</span>
+            </h1>
+            <div class="content" v-show="isshow">
+                <p>内容</p>
+                <p>内容</p>
+                <p>内容</p>
+                <p>内容</p>
+                <p>内容</p>
+            </div>
+        </div>
+    </div>
+    
+</body>
+<script>
+    let app=new Vue({
+        el:"#app",
+        data:{
+           isshow:true
+        },
+    })
+</script>
+</html>

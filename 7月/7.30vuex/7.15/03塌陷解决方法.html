@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* 塌陷问题解决方法：1、overflow: hidden; */
+        /* .father{padding:10px;border: 1px solid red;overflow: hidden;} */
+        /* .father{padding:10px;border: 1px solid red;}  */
+        /* 3、给块级元素添加一个指定高度 */
+        /* .father{padding:10px;border: 1px solid red;height:120px;} 
+        p {float:left;} */
+        /* 对于一个行内元素，加了浮动后就变成块级元素可以设置宽高 */
+        p a{border:1px solid red;margin:0 5px;height: 30px;line-height: 30px;float: left;}
+    </style>
+</head>
+<body>
+    <!-- <div class="father">
+        <p>
+                人与自然是生命共同体，生态兴则文明兴，生态衰则文明衰。习近平总书记多次强调“绿水青山就是金山银山”“要像保护眼睛一样保护生态环境，像对待生命一样对待生态环境”“环境就是民生，青山就是美丽，蓝天也是幸福”……
+
+                不忘初心，方得始终。在生机盎然的七月，让我们一起重温这些生动话语，当好绿水青山的守护者，共绘美丽家园新图景。
+        </p> -->
+        <!-- 2、在块级容器结束之前，添加一个空的div标签，然后添加clear:both属性 -->
+        <!-- <div style="clear:both"></div> -->
+    <!-- </div> -->
+    <p>
+        <a href="">百度</a>
+        <a href="">淘宝</a>
+        <a href="">腾讯</a>
+    </p>
+</body>
+</html>

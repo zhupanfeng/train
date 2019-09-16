@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+    <script src="./vuex.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <p>我是根组件</p>
+        <br>
+        <add-counter></add-counter>
+        <br>
+        <sub-counter></sub-counter>
+    </div>
+    <template id="addcounter">
+        <div>
+            <p>我是addcounter子组件</p>
+            <p>counter当前值为{{this.$store.state.counter}}</p>
+            <button @click="addone">加1</button>
+        </div>
+    </template>
+    <template id="subcounter">
+        <div>
+            <p>我是subcounter子组件</p>
+            <p>counter当前值为{{this.$store.state.counter}}</p>
+            <button @click="subone">减1</button>
+        </div>
+    </template>
+    <script>
+        // 创建一个仓库
+        let store = new Vuex.Store({
+            state: {
+                counter: 1
+            },
+            mutations: {
+                add(state) {
+                    state.counter++;
+                },
+                sub(state) {
+                    state.counter--;
+                },
+            }
+        })
+        // 定义AddCounter组件
+        const AddCounter = {
+            template: "#addcounter",
+            methods: {
+                addone() {
+                    this.$store.state.counter++;
+                }
+            }
+        }
+        const SubCounter = {
+            template: "#subcounter",
+            methods: {
+                subone() {
+                    this.$store.state.counter--;
+                }
+            }
+        }
+        let vm = new Vue({
+            el: "#app",
+            data: {},
+            store,
+            // 注册组件
+            components: {
+                AddCounter,
+                SubCounter
+            }
+        })
+
+    </script>
+</body>
+
+</html>

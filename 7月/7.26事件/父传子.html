@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        我是父组件 我要使用父组件中的数据{{num}}
+        <hr>
+        <son :sonvalue="num" :sonname="name"></son>
+    </div>
+    <template id="son">
+        <div>
+            <h2>我是子组件 -----{{sonvalue}}----{{sonname}}---{{sonnone}}</h2>
+            <!-- <button @click="son">修改数据为200</button> -->
+            <h3>{{myvalue}}</h3>
+            <!-- 修改儿子数据 -->
+            <button @click="myvalue=200">修改数据为200</button>
+        </div>
+    </template>
+</body>
+<script>
+    // 定义子组件
+    let son={
+        // 只有一个根组件，当不够用时可以用template标签
+        template:"#son",
+        // 除了VM之外，后面子组件数据都是data函数，并且return一个对象
+        data(){
+            return{
+                myvalue:this.sonvalue
+            }
+        },
+        props:{
+            sonvalue:Number,
+            sonname:{
+                type:String,
+                required:false,//判断是否接收
+                default:"xiaoqiang"//默认值
+            },
+            sonnone:{
+                default:"lihua"
+            }
+        },
+        methods:{
+            show(){
+                alert(this.sonvalue)
+            }
+        }
+    }
+    // vm根组件父组件
+     let vm=new Vue({
+        el:"#app",
+        data:{
+            num:100,
+            name:"wangcai"
+        },
+        // 注册组件（局部注册）
+        components:{
+            son
+        }
+    })
+</script>
+</html>

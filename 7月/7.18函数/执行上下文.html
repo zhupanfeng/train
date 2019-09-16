@@ -1,0 +1,25 @@
+<script>
+    // 代码运行后默认进入全局代码--->产生全局执行上下文
+    // let  a=1;
+    // let f = ()=>{
+    //     console.log("f...")
+    // }
+    // let g =()=>{
+    //     f()
+    // }
+    // g()
+</script>
+
+<script>
+    let a=1;
+    let f = () =>{
+        let b=2;
+        let g=()=>{
+            let c=3; 
+             console.log(c)
+        }
+      
+        g()
+    }
+    f()
+</script>

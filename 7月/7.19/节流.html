@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 400px;
+            height: 400px;
+            background-color:pink;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+<!-- <script>
+    let div=document.getElementsByTagName("div")[0]//获取元素
+    function k(){
+        let now=Date.now();
+        function m(){
+            if(Date.now()-now>2000){
+                console.log("鼠标移动了"+Date.now())
+                now=Date.now();
+            }else{
+                console.log("时间还没到...")
+            }
+        }
+        return m;
+    }
+    var m=k();
+    // 节流：2000ms内只能执行一次
+    div.addEventListener("mousemove",m);
+</script> -->
+
+<script>
+    let div=document.getElementsByTagName("div")[0];
+    function k(){
+        let now=Date.now();
+        function m(){
+            if(Date.now()-now>2000){
+                console.log("鼠标移动了"+Date.now());
+                now=Date.now();
+            }
+            else{
+                console.log("时间还没到..")
+            }
+        }
+        return m;
+    }
+    var m=k();
+    div.addEventListener("mousemove",m);
+</script>
+</html>

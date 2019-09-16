@@ -1,0 +1,96 @@
+<script>
+    // 1、Object.getOwnPropertyDescriptor()
+    // 得到对象中某个属性的特征
+    // let obj={
+    //     name:"wangcai"
+    // }
+    // console.log(Object.getOwnPropertyDescriptor(obj))//undefined
+    // // {value: "wangcai", writable: true, enumerable: true, configurable: true}
+    // console.log(Object.getOwnPropertyDescriptor(obj,"name"))
+
+    // let a=11;
+    // console.log(window.a)//undefined
+    // console.log(Object.getOwnPropertyDescriptor(window,"a"))//undefined
+
+    // var b=222;
+    // // {value: 222, writable: true, enumerable: true, configurable: false}
+    // console.log(Object.getOwnPropertyDescriptor(window,"b"))
+
+    // const pi=3.14;
+    // console.log(window.pi)//undefined
+
+    // 只有var定义的挂在window上
+</script>
+<script>
+    // 2，Object.defineProperty()
+    // 精细化设置一个对象的属性 
+    //3，Object.defineProperties()
+    // 精细化设置一个对象的多个属性
+
+    // let obj={
+    //      name:"wangcai"
+    //  }
+    // Object.defineProperty(obj,"name",{
+    //     configurable:false,
+    //     writable:false,
+    //     enumerable:false,
+    //      value:true,
+    // })
+    // // {value: true, writable: false, enumerable: false, configurable: false}
+    //  console.log(Object.getOwnPropertyDescriptor(obj,"name"))
+
+</script>
+<script>
+    // 4，getOwnPropertyNames()：得到对象中内部所有属性放到一个数组中
+    // let obj = {
+    //     name: "wangcai",
+    //     age: 100
+    // }
+    // console.log(Object.getOwnPropertyNames(obj))["name","age"]
+    // 5，Object.keys()：得到对象所有属性（内部和原型）放到一个数组中
+    // console.log(Object.keys(obj))
+    // 6，Object.values()：得到对象中所有属性的值
+</script>
+<script>
+    // 7、Object.create()：用于对字面量对象实现继承
+    // let obj = {
+    //     name: "wangcai",
+    //     age: 100
+    // }
+    // let obj2=Object.create(obj)
+    // console.log(obj2.name)//wangcai
+    // console.log(obj2.age)//100
+
+</script>
+<script>
+    // 8、getPrototypeOf()：得到一个对象的原型对象
+
+    // let obj = {
+    //     name: "wangcai",
+    //     age: 100
+    // }
+    // console.log(Object.getPrototypeOf(obj)==Object.prototype)//true
+    // let arr = []
+    // console.log(Object.getPrototypeOf(arr) === Array.prototype)  // true
+</script>
+<script>
+    // // 9、Object.assign：将原对象的所有可枚举属性，复制到目标对象
+    // let name = "wangcai"
+    // let age = 110
+    // let obj = {}
+    // let obj1 = {
+    //     name
+    // }
+    // let obj2 = {
+    //     age
+    // }
+    // Object.assign(obj,obj1,obj2)
+    // console.log(obj.name)
+    // console.log(obj.age)
+</script>
+<script>
+    // 防篡改方法
+    // preventExtensions():不允许新增，可以修改，可以删除
+    // seal:密封，不允许新增，不允许删除，可以修改
+    // freeze：冰封，不允许新增、不允许删除，不允许修改
+</script>

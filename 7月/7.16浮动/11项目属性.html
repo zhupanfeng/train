@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .father{
+            width: 300px;
+            height: 300px;
+            border:2px solid purple;
+            display: flex;
+        }
+        .son1{
+            width: 40px;
+            height: 40px;
+            background-color: red;
+            /* flex-grow: 3; */
+            flex-basis: 20%;
+        }
+        .son2{
+            width: 40px;
+            height: 40px;
+            background-color: gold;
+            /* flex-grow: 2; */
+            flex-basis: 40%;
+        }
+        .son3{
+            width: 40px;
+            height: 40px;
+            background-color: green;
+            /* flex-grow: 1; */
+            flex-basis: 40%;
+            align-self: flex-end;
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+        <!-- order改变项目顺序 -->
+        <!-- flex-grow让某个项目生长 flex-shrink:让某个项目缩进 -->
+        <!-- flex-basis项目在主轴上占据的大小 -->
+        <!-- flex复合属性 -->
+        <!-- align-self:单独设置某个项目的对齐方式，单独一个项目在交叉轴上的位置 -->
+        <div style="order:1" class="son1">son1</div>
+        <div style="order:2" class="son2">son2</div>
+        <div style="order:3" class="son3">son3</div>
+    </div>
+</body>
+</html>

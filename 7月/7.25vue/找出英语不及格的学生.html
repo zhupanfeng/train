@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <table border="1">
+            <tr>
+                <th>姓名</th>
+                <th v-for="(value,key,index) in subjects">{{value}}</th>
+                <th>总分</th>
+                </th>
+            </tr>
+            <tr v-for="(value,key,index) in scores">
+                <td>{{value.name}}</td>
+                <td v-for="(value,key,index) in value.score">{{value}}</td>
+                <td>{{ getSumScore(value.score)}}</td>
+            </tr>
+            <tr>
+                <td>平均分</td>
+                <td v-for="(value,key,index) in subjects">{{getAvg(key)}}</td>
+            </tr>
+            <h1>{{getSumScoreAll()}}</h1>
+            <div>
+            <h2>英语不及格的学生有:</h2>
+            <p v-for="(item) in getYYFail">{{item.name}}-英语分数- {{item.score[2]}}
+            </p>
+            </div>
+        </table>
+
+    </div>
+    <script>
+        let app=new Vue({
+            el:"#app",
+            data:{
+                subjects:["语文","数学","英语","体育"],
+                scores:[
+                    {name:"z1",score:[89,45,23,56]},
+                    {name:"n4",score:[85,95,43,36]},
+                    {name:"l6",score:[87,45,23,96]},
+                    {name:"m2",score:[89,55,13,56]},
+                ]
+            },
+            methods:{
+                // 每一个学生的总分
+                getSumScore(arr){
+                    return arr.reduce((prev,next)=>prev+next)
+                },
+
+
+                // // // // 每个人的平均分
+                // // // getAvgOne(arr){
+                // // //     arr.reduce((prev,next)=>prev+next)/subjects.length);
+                // // // },
+
+                
+                // 英语不及格的学生
+                // getYYFail(){
+                //     return this.scores.filter(item=>item.score[2]<60)
+                // },
+                // 所有学生的总分
+                getSumScoreAll(){
+                    let sum=0
+                    this.scores.forEach(item=>{
+                        sum+=this. getSumScore(item.score)
+                    })
+                    return sum;
+                },
+                // 平均分
+                getAvg(index){
+                    let arr=this.scores.map(item=>item.score[index])
+                    return this.getSumScore(arr)/this.scores.length;
+                }
+            },
+            computed: {
+                getYYFail(){
+                    return this.scores.filter(item=>item.score[2]<60)
+                }
+            },
+            // filters:{
+
+            // }
+        })
+    </script>
+</body>
+</html>

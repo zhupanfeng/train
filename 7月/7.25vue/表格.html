@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <table border="1">
+        <tr>
+            <th>姓名</th>
+            <th v-for="(value,key,index) in subjects"> {{value}}</th>
+        </tr>
+        <tr v-for="(value,key,index) in scores">
+                <td>{{value.name}}</td>
+                <td v-for="(s) in value.score">{{s}}</td>
+        </tr>
+        </table>
+    </div>
+    <script>
+        var app=new Vue({
+            el:"#app",
+            data:{
+               stus:["z3","li","w5"],
+               subjects:["语文","数学","英语"],
+               scores:[
+                  {name:"z3",score:[1,2,3]},
+                  {name:"l3",score:[4,2,3]},
+                  {name:"w3",score:[5,2,3]},
+                  {name:"t3",score:[6,2,3]},
+              ]
+            }
+        })
+    </script>
+</body>
+</html>

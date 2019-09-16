@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+    <style>
+        .father{
+            width: 300px;
+            height: 300px;
+            border: 2px solid red;
+        }
+        .son{
+            width: 200px;
+            height: 200px;
+            border: 2px solid blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="father" @click="f1">
+            <div class="son" @click="f2($event)"></div>
+        </div>
+
+    </div>
+    
+</body>
+<script>
+    let app=new Vue({
+        el:"#app",
+        data:{
+        },
+        methods:{
+            f1(){
+                console.log("父...")
+            },
+            f2(a){
+                // 阻止冒泡
+                 a.stopPropagation()
+                console.log("子...")
+            }
+        }
+    })
+</script>
+</html>

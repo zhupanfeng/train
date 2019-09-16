@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+    <script src="./city-data.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        省：
+        <select v-model="currentP">
+            <option v-for="item in getP" :value="item">{{item}}</option>
+        </select>
+        市：
+        <select v-model="currentC">
+                <option v-for="item in getC" :value="item">{{item}}</option>
+        </select>
+        区：
+        <select >
+                <option v-for="item in getR" :value="item">{{item}}</option>
+        </select>
+    </div>
+</body>
+<script>
+    let app = new Vue({
+        el: "#app",
+        data: {
+            city: cityInfo,
+            currentP:"-请选择-",
+            currentC:"-请选择-"
+        },
+        computed: {
+            getP() {
+                let rs = this.city.map(item => item.name)
+                rs.unshift("-请选择-")
+                return rs
+            },
+            getC(){
+                let result=[]
+                let rs=this.city.find(item=>item.name==this.currentP)
+                if(rs){
+                    result=rs.sub.map(item=>item.name)
+                    this.currentC="-请选择-"
+                }
+                return result
+            },
+            getR(){
+               let result=[]
+               let re=this.city.find(item=>item.name==this.currentP)
+               if(re){
+                   let rs=re.sub.find(item=>item.name==this.currentC)
+                   if(rs){
+                    result=rs.sub.map(item=>item.name)
+                    return result;
+                   }
+               }
+            },
+        }
+    })
+</script>
+
+</html>

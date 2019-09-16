@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 使用组件 -->
+        <!-- <aaa></aaa> -->
+        <abc></abc>
+    </div>
+    <script>
+        // 定义一个组件对象
+        let abc={
+            template:"<div>我是一个组件</div>"
+        }
+        var app=new Vue({
+            el:"#app",
+            data:{
+
+            },
+            // 注册组件
+            components:{
+                aaa:abc,
+                // abc,//注册名字，可以使用定义时的，也可以再起
+                "my-head":{
+                    template:"<div>我是一个组件</div>"
+                }
+            }
+        })
+    </script>
+</body>
+</html>

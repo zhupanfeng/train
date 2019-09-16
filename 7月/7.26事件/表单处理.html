@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <form action="">
+            <p>
+                <label for="">姓名</label>
+                <input type="text" v-model="info.name">
+            </p>
+            <p>
+                性别：
+                <input v-model="info.sex" type="radio" value="男" name="sex" />男
+                <input v-model="info.sex" type="radio" value="女" name="sex" />女
+            </p>
+            <p>
+                <input v-model="info.isagree" type="checkbox">同意</p>
+            <p>
+                兴趣爱好1：
+                <input v-model="info.favoriate.book" type="checkbox" value="book" />看书
+                <input v-model="info.favoriate.game" type="checkbox" value="game" />游戏
+                <input v-model="info.favoriate.sleep" type="checkbox" value="sleep" />睡觉
+            </p>
+            <p>
+                兴趣爱好2：
+                <!-- 单标签不能使用v-for -->
+                <!-- <input type="checkbox" v-for="(value,key,index) in  allfavoriate">{{value}} -->
+
+                <!-- 可以用一个div包裹起来 但多了一个无用div -->
+                <!-- <div>
+                            <input type="checkbox" v-for="(value,key,index) in  allfavoriate">
+                            {{value}}
+                    </div> -->
+
+
+                <!-- 可以使用template -->
+                <template v-for="(item,key,index) in  allfavoriate">
+                    <input type="checkbox" :value=item.name> {{item.name}}
+                </template>
+            </p>
+
+            <p>
+                教育：
+                <select name="" id="">
+                    <option value="-请选择-"></option>
+                    <option v-for="item in eduOption" :value="item">{{item}}</option>
+                </select>
+            </p>
+        </form>
+        <hr>
+        <p>你的信息是：</p>
+        {{info}}
+    </div>
+
+</body>
+<script>
+    let app = new Vue({
+        el: "#app",
+        data: {
+            allfavoriate: [
+                {
+                    "name": "book",
+                    "value": "看书"
+                },
+                {
+                    "name": "travel",
+                    "value": "旅行"
+                },
+                {
+                    "name": "sleep",
+                    "value": "睡觉"
+                },
+                {
+                    "name": "study",
+                    "value": "学习"
+                },
+            ],
+            eduOption: ["重点", "一本", "二本", "三本"],
+            info: {
+                name: "zhiya",
+                sex: "男",
+                isagree: false,
+                favoriate: {
+                    book: false,
+                    game: true,
+                    sleep: true,
+                },
+                edu: "-请选择-"
+            },
+
+        },
+    })
+</script>
+
+</html>

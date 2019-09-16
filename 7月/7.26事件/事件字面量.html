@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <button v-on:click="f1('hello')">注册</button>
+        <button v-for="(value,key,index) in 3" v-on:click="f2(value)">按钮{{value}}</button>
+    </div>
+</body>
+<script>
+    let app=new Vue({
+        el:"#app",
+        data:{
+
+        },
+        methods:{
+            f1(str){
+                alert(str)
+            },
+            f2(num){
+                alert(num)
+            }
+        }
+    })
+</script>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .father{
+            display: flex;
+            /* flex-direction: column; */
+            /* flex-wrap:wrap; */
+            flex-flow:row wrap;
+            /* justify-content: space-around; */
+            /* align-items:center; */
+            /* align-content: space-around; */
+            width: 400px;
+            height: 400px;
+            border:2px solid red;
+        }
+        .son1{
+            width: 60px;
+            height: 60px;
+            background-color: gold;
+        }
+        .son2{
+            width: 60px;
+            height: 60px;
+            background-color: green;
+        }
+        .son3{
+            width: 60px;
+            height: 60px;
+            background-color:purple;
+        }
+        .son4{
+            width: 60px;
+            height: 60px;
+            background-color: blue;
+        }
+        .son5{
+            width: 60px;
+            height: 60px;
+            background-color: gold;
+        }
+        .son6{
+            width: 60px;
+            height: 60px;
+            background-color: green;
+        }
+        .son7{
+            width: 60px;
+            height: 60px;
+            background-color:purple;
+        }
+        .son8{
+            width: 60px;
+            height: 60px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <!-- 容器的相关属性：6个 -->
+
+     <!-- flex-direction 主轴方向，也是项目排列方向-- row 主轴行正向排列 row-reverse反
+        column、column-reverse -->
+
+        <!-- flex-wrap:控制容器中项目是否换行 nowrap、wrap、wrap-reverse -->
+        <!-- flex-flow:flex-direction fiex-wrap复合属性 -->
+        <!-- justify-content:处理富余空间 flex-start center flex-end space-between space-around -->
+        <!-- align-items 项目在交叉轴上的位置，flex-start center flex-end -->
+        <!-- align-content多根主轴时处理在交叉轴上的富余空间 -->
+    <div class="father">
+        <div class="son1">son1</div>
+        <div class="son2">son2</div>
+        <div class="son3">son3</div>
+        <div class="son4">son4</div>
+        <div class="son5">son5</div>
+        <div class="son6">son6</div>
+        <div class="son7">son7</div>
+        <div class="son8">son8</div>
+    </div>
+</body>
+</html>

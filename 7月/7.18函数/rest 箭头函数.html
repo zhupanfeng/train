@@ -1,0 +1,102 @@
+<script>
+    // function f(a,b,c,d=10){
+    //     console.log(a);//1
+    //     console.log(b);//2
+    //     console.log(c);//3
+    //     console.log(d);//10
+    // }
+    // console.log(f(1,2,3))
+
+</script>
+<script>
+    // rest
+    // function f(a,b,...abc){
+    //     console.log(a)//1
+    //     console.log(b)//2
+    //     console.log(abc)//3 4
+    //     console.log(arguments)//1 2 3 4
+    // }
+    // f(1,2,3,4)
+</script>
+<!-- 箭头函数 -->
+<script>
+    // function f(a,b){
+    //     return a+b;
+    // }
+    // 箭头函数没有function关键字 =>
+    // var f=(a,b)=>{
+    //     return a+b;
+    // }
+    // console.log(f(1,2))
+
+    // 特点1：如果形参只有1个，()可不写
+    // let f=(a)=>{
+    //     console.log(a)
+    // }
+
+    // let f = a =>{
+    //     console.log(a)
+    // } 
+    // f(2);
+
+    // 特点2：如果函数体只有一条语句，{}可以不写,return 也需要去掉
+
+    // let f = a=>{
+    //     return a;
+    // }
+
+    // let f = a=> a;
+    
+    // console.log(f(2))
+
+    // 特点3:返回对象,把{}和return 去掉时，需要给对象加()
+    //  let f = () =>{
+    //      return {name:"wangcai"}//Invalid or unexpected token
+    //  }
+
+    // let f= ()=>({name:"wangcai"})
+    // console.log(f())
+
+    // let f = () =>console.log(123);
+    // f()
+</script>
+
+
+<!-- 对函数的扩展 -->
+<script>
+    // let arr=[1,2,3]
+    // let arr2=[...arr]
+    // console.log(arr)//[1,2,3]
+    // console.log(arr2)//[1,2,3]
+    // arr[0]=666;
+    // console.log(arr)//[666,2,3]
+    // console.log(arr2)//[1,2,3]
+
+
+    // ...rest
+    function f(a,...rest){
+        console.log(rest);2,3,45,5
+    }
+    f(1,2,3,45,5);
+</script>
+
+<!-- 全局代码&局部代码 -->
+<script>
+    // var a=1;
+    // let b=2;
+    // function f(){
+    //     let c=1;
+    //     console.log(c);
+    //     console.log("f...")
+    // }
+    // f()
+    // f()
+    // f()
+    // f()
+    // let g = () =>{
+    //     console.log("g...")
+    // }
+    // g()
+    // g()
+    // g()
+</script>

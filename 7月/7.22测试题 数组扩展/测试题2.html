@@ -1,0 +1,186 @@
+<script>
+    // var a=function abc(num){
+    //     abc=num;
+    //     console.log(num)//1
+    //     console.log(abc)//打印出一个函数，说明abc只读；要是打出来1说明可以给函数名赋值
+    //     console.log(typeof abc) //function  函数的typeof是function
+    // }
+    // a(1)
+</script>
+<script>
+    //对于函数表达式来说，如果function后面又加了一个函数名，后面这个函数名在外面不能调用
+    // 在函数内部可以调用
+    // var f=function g(){
+    //     console.log(g)//g(){console.log(g) console.log("a...")}打印出g函数
+    //     console.log("a...")//a...
+    // }
+    // f()
+    //  function f(){
+
+    //  }
+    //  console.log(typeof f)
+</script>
+<script>
+        // var a=function abc(num){
+        //     abc=num;
+        //     return 1;
+        // }
+        // a(1)
+        // console.log( abc());//abc is not defined
+</script>
+<script>
+    // this.a=20//全局window上挂了一个a,值20
+    // var test={
+    //     a:40,
+    //     init:function(){
+    //         console.log(this.a)//this谁调用指向谁
+    //     }
+    // }
+    // console.log(test.a)//40
+    // test.init()//40
+</script>
+<script>
+    // a=10;//全局的东西都要挂在window上
+    // console.log(window.a)//10
+    // // 在全局中this表示window
+    // console.log(this)// a:10  b:20
+    // console.log(this.a)//10
+    // this.b=20;
+</script>
+<script>
+    // this.a=20
+    // var test={
+    //     a:40,
+    //     init:function(){
+    //         console.log(this.a)//20
+    //     }
+    // }
+    // var fn=test.init
+    // // 调用fn全局挂在window
+    // fn();
+</script>
+<script>
+    // this.a=20
+    // var test={
+    //     a:40,
+    //     init:function(){
+    //         console.log(this.a)//40
+    //         function go(){
+    //             console.log(this.a)//20
+    //         }
+    //         go();
+    //     }
+    // }
+    // test.init()
+</script>
+<script>
+    // this.a=20
+    // var test={
+    //     a:40,
+    //     init:function(){
+    //         function go(){
+    //             console.log(this.a)//20
+    //         }
+    //         return go;
+    //     }
+    // }
+    // var s=test.init()
+    // s();
+</script>
+<script>
+    // this.a=20;
+    // var test={
+    //     a:40,
+    //     init:function (){
+    //         console.log(this.a)//20
+    //     }
+    // };//is not a function
+    // // 如果一个IIFE立即执行前面是一个对象，需要在{}后面加;
+    // (function (){
+    //     var fn=test.init;
+    //     fn()
+    // })()
+
+</script>
+<script>
+    // this.a=20;
+    // var test={
+    //     a:40,
+    //     init:()=>{
+    //         // 箭头函数中没有this，箭头函数中的this要找上一级
+    //         console.log(this.a)//20
+    //     }
+    // }
+    // test.init()
+</script>
+<script>
+        // function test(m){//形参
+        //     m={v:5}
+        // }
+        // var m={k:30}
+        // test(m);//实参
+        // console.log(m.v)//undefined
+</script>
+<script>
+    // 在之前火狐浏览器中，它把IIFE中的函数提升到了最前面，在IIFE外面可以访问f()
+    // 现在主流浏览器中，提升到IIFE的最前面
+    // function f(){
+    //     console.log(1)
+    // }
+    // (function(){
+    //     var f;
+    //     if (false){
+    //         f=function(){
+    //             console.log(2)
+    //         }
+    //     }
+    //     console.log(f)//undefined
+    //     f();// f is not a function
+    // })();
+</script>
+<script>
+    // function f(){
+    //     console.log("f...")
+    // }
+    // function f(){
+    //     console.log("g...")
+    // }
+    // f()//g... 覆盖
+</script>
+<script>
+    // function f() {
+    //     console.log(1)
+    // }
+    // if (false) {
+    //     function f() {
+    //         console.log(2)
+    //     }
+    // }
+    // console.log(typeof f)//function
+    // console.log(typeof f)//function
+    // f();//1
+    // console.log(f)//f(){
+</script>
+<script>
+    // 请用一句话算出0-100之间学生的学生等级，如90-100输出1,80-90输出2
+    // var score=88;
+    // console.log(Math.ceil(10-score/10))
+</script>
+<script>
+    // function f(){
+    //     console.log("f...")
+    // }
+    //  var f=110;//f重名，会把上面覆盖成为一个变量
+    //  f()//f is not a function
+    // console.log(f)//不执行
+
+
+    // 提升之后代码，函数是一等公民
+    // function f() {
+    //     console.log("f...")
+    // }
+    // var f;
+    // f = 110;
+    // f()
+    // console.log(f)
+</script>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 父传子步骤 -->
+        <!-- 第一步：确保父组件中必须有数据 -->
+        我是父组件 我要使用父组件中的数据:{{num}}、{{name}}
+        <hr>
+        <!-- 第二步：在父组件模板中通过属性绑定把数据绑定在子组件中 -->
+        <son :sonvalue="num" :sonname="name"></son>
+    </div>
+    <template id="son">
+        <div>
+            <!-- 第四步：在子组件模板中使用父传的数据 -->
+            <h2>我是子组件，我接收的数据{{sonvalue}}、{{sonname}}</h2>
+            <!-- 想要修改子组件值，只能修改保留在子组件中的数据，不能直接修改传递过来的这样会改变父组件中的 -->
+           <!-- 父子都为200 -->
+            <!-- <button @click="sonvalue=200">修改数据为200</button>
+            <h3>{{sonvalue}}</h3> -->
+
+            <!-- 子组件的修改为200，父组件不变 -->
+            <!-- <button @click="myvalue=200">修改数据为200</button>
+            <h1>{{myvalue}}</h1> -->
+        </div>
+    </template>
+</body>
+<script>
+    // 定义子组件
+    let son = {
+        template: "#son",
+        data() {
+             return {
+                myvalue: this.sonvalue
+                 }
+        },
+        // 在子组件中定义props属性，来接收父组件中的数据
+        props:{
+            sonvalue:Number,
+            sonname:{
+                type:String,
+                required:true,
+                default:"nenye"
+            }
+        },
+        methods: {
+            show() {
+                alert(this.sonvalue)
+            }
+        }
+    }
+    // 父根组件
+    let vm = new Vue({
+        el: "#app",
+        data: {
+            num: 100,
+            name: "zhiya"
+        },
+        // 注册局部组件
+        components: {
+            son
+        }
+    })
+</script>
+
+</html>

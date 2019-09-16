@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>父组件</h1>
+        <son @submitname="addname"></son>
+        <h3>{{name}}</h3>
+    </div>
+    <template id="son">
+       <div>
+            <h2>子组件</h2>
+            <button @click="fashe">发射</button>
+       </div>
+    </template>
+    
+</body>
+<script>
+    let son={
+        template:"#son",
+        data(){
+            return{
+
+            }
+        },
+        methods:{
+            fashe(){
+                this.$emit("submitname","lisi")
+            }
+        }
+    }
+    let vm=new Vue({
+        el:"#app",
+        data:{
+            name:"zhangsan"
+        },
+        components:{
+            son
+        },
+        methods:{
+           addname(info){
+                this.name=info
+           }
+        }
+    })
+</script>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./vue.js"></script>
+    <title>Document</title>
+    <style>
+       .father{
+        border: 1px solid red;
+        width: 200px;
+        height: 200px;
+        background-color:pink;
+    }
+    button{
+        display: block;
+        margin: 0 auto;
+        margin-top:30px;
+    }
+    </style>
+</head>
+<body>
+   <div id="app">
+        <!-- <a href="http://www.baidu.com" @click.prevent="f1">点击</a> -->
+
+        <!-- self放到父上阻止冒泡 -->
+        <!-- <div class="father" @click.self="fatherClick">
+                <button @click="sonClick">点击</button>
+        </div> -->
+
+        <!-- stop放到儿子上阻止冒泡 -->
+        <!-- <div class="father" @click="fatherClick">
+                <button @click.stop="sonClick">点击</button>
+        </div> -->
+     
+        <!-- 捕获 儿子、父上都要放 -->
+        <!-- <div class="father" @click.capture="fatherClick">
+                <button @click.capture="sonClick">点击</button>
+        </div> -->
+
+        <!-- once只执行一次 -->
+         <!-- <button @click.once="sonClick">点击</button> -->
+
+         <!-- 同时使用多个修饰符 -->
+         <!-- <a href="http://www.baidu.com" @click.once.prevent="f1">点击</a> -->
+       
+    </div>
+    
+</body>
+<script>
+    let app=new Vue({
+        el:"#app",
+        data:{
+
+        },
+        methods:{
+            f1(){
+                console.log("aaa")
+            },
+            fatherClick(){
+                console.log("father被点击了")
+            },
+            sonClick(){
+                console.log("son被点击了")
+            }
+
+        }
+    })
+</script>
+</html>

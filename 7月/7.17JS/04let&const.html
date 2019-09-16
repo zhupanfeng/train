@@ -1,0 +1,136 @@
+<script>
+    // // var定义的变量
+    // var a=111;//全局变量,作用域在函数内外都可以
+
+    // function ae(){
+    //     var b=999;//局部变量，只能在函数内部访问
+    // }
+    // {
+    //     var c=777;//块级作用域
+    // }
+    // console.log(c)
+    // console.log(a)
+    // console.log(b)//b is not defined
+
+
+    // let会生成一个块级作用域，出了块级作用域就不起作用
+    // {
+    //     let a=110;
+    //     // console.log(a);
+    // }
+    // console.log(a)//a is not defined
+
+
+    // let不会提升
+    // console.log(a)
+    // let a=110;//a is not defined
+
+    // let不会挂在window上面
+
+    // var a=999;
+    // console.log(a)//999
+    // console.log(window.a)//999可以挂在window上
+
+    // let b=777;
+    // console.log(b)//777
+    // console.log(window.b)//undefined
+
+
+   
+</script>
+<!-- 实现点击显示 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>0</li>
+        <li>1</li>
+        <li>2</li>
+    </ul>
+    <script>
+        // html：dom元素提供结果 css提供样式 JS操作html和css
+        // js可以操作dom，对其增删改查
+        // let lis=document.getElementsByTagName("li");//获取上li
+        // // lis[0]事件源 On前缀 click事件 function(){}事件处理程序，监听器
+        // lis[0].onclick=function(){
+        //     console.log(0)
+        // }
+        // lis[1].onclick=function(){
+        //     console.log(1)
+        // }
+        // lis[2].onclick=function(){
+        //     console.log(2)
+        // }
+
+
+        // 利用for循环进行优化
+
+        // let lis=document.getElementsByTagName("li");
+        // console.log(lis.length) 
+
+        // for(let i=0;i<lis.length;i++)
+        // {
+        //     lis[i].onclick=function(){
+        //         console.log(i)
+        //     }
+        // }
+
+        
+        // 使用var定义区别
+
+        // var lis=document.getElementsByTagName("li");
+        // for(var i=0;i<lis.length;i++)
+        // {
+        //     lis[i].onclick=function(){
+        //            console.log(i)
+        //     }
+        // }
+        // 结果每次点击都为3
+        // 原因：因为JS是单线程，遇到耗时任务就交给线程去做，
+        // 而主线程继续执行，但是let会形成块级作用域，每一次循环都会形成一个块级
+
+
+        // let不能重复定义
+
+        // let a=1;
+        // let a=10;
+        // console.log(a)//Identifier 'a' has already been declared
+
+            // let定义后可以再次改值
+        // let a=1;
+        // a=10;
+        // console.log(a)//10
+    </script>
+    <script>
+        // const 定义常量
+        // const pi=3.14;
+        // console.log(pi);//3.14
+
+        // 定义后不能再修改值
+        // const pi=3.14;
+        // pi=90;
+        // console.log(pi);//Assignment to constant variable.
+        
+        // 不能重复定义
+        //  const pi=3.14;
+        //  const pi=90;
+        //  console.log(pi);//Identifier 'pi' has already been declared
+
+
+        //   const obj={name:"wangcai"};
+        //  console.log(obj);//{name: "wangcai"}
+        //   obj.age=100;
+        //   console.log(obj)//{name: "wangcai", age: 100}
+        //   obj={age:100}
+        //  console.log(obj)
+
+    </script>
+
+</body>
+</html>

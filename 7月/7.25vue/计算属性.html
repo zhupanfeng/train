@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 计算属性 -->
+        <!-- <h1>{{computedAge}}</h1> -->
+        <!-- 方法 -->
+        <!-- <h2>{{computedAge1()}}</h2> -->
+        <!-- 计算属性当数据调用，方法必须调用 -->
+
+        <!-- 计算属性有缓存 -->
+        <!-- <h1>{{computedAge}}</h1>
+        <h1>{{computedAge}}</h1>
+        <h1>{{computedAge}}</h1>
+        <h1>{{computedAge}}</h1> -->
+
+        <!-- 方法没有缓存 -->
+        <!-- <h2>{{computedAge1()}}</h2>
+        <h2>{{computedAge1()}}</h2>
+        <h2>{{computedAge1()}}</h2>
+        <h2>{{computedAge1()}}</h2> -->
+
+    </div>
+    <script>
+        let app=new Vue({
+            el:"#app",
+            data:{
+                age:38
+            },
+            // methods: {
+            //     computedAge1:function(){
+            //         console.log("方法")
+            //         if(this.age>30){
+            //             return "30而立"
+            //         }
+            //     }
+            // },
+            // computed:{
+            //     computedAge:function(){
+            //        console.log("计算属性")
+            //         if(this.age>30){ 
+            //             return "30而立"
+            //         }
+            //     }
+            // },
+        })
+    </script>
+</body>
+</html>

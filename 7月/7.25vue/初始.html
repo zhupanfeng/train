@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script> -->
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- {{}}插值表达式 -->
+        <!-- 视图 view -->
+        <h1>{{msg}}</h1>
+        <p>{{name}}</p>
+        
+    </div>
+    <script>
+        var app=new Vue({
+            // el指定app管理的边界
+            el:"#app",
+            data: {
+                // 在app中data是一个属性 在后面讲的组件中是个方法
+                msg:"hello world",
+                name:"wangcai"
+            }
+        })
+    </script>
+</body>
+</html>

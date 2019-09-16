@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+    <script src="./city-data.js"></script>
+</head>
+<body>
+    <div id="app">
+        省：
+        <select v-model="currentP">
+            <option v-for="item in getP" :value="item">{{item}}</option>
+        </select>
+        市：
+        <select v-model="currentC">
+            <option v-for="item in getC" :value="item">{{item}}</option>
+        </select>
+        区：
+        <select >
+                <option v-for="item in getR" :value="item">{{item}}</option>
+        </select>
+    </div>
+    <script>
+        let app=new Vue({
+            el:"#app",
+            data:{
+                city:cityInfo,
+                currentP:"-请选择-",//用户当前选中的省
+                currentC:"-请选择-",//用户当前选中的市
+            },
+            computed:{
+                // 得到所有的省
+                getP(){
+                   let  rs=this.city.map(item=>item.name)
+                   rs.unshift("-请选择-")
+                   return rs;
+                },
+                // 得到所有的市
+                getC(){
+                    let result=[]
+                    let rs=this.city.find(item=>item.name==this.currentP)
+                    //  console.log(rs)
+                        if(rs){
+                            result=rs.sub.map(item=>item.name)
+                            this.currentC="请选择"
+                        }
+                        return result;
+                },
+                // 得到所有区
+                getR(){
+                    let require=[]
+                    let rf=this.city.find(item=>item.name==this.currentP)
+                    // console.log(rg)
+                    if(rf){
+                         let rg=rf.sub.find(item=>item.name==this.currentC)
+                         if(rg){
+                            require=rg.sub.map(item=>item.name) ;
+                            return require;
+                        } 
+                    }
+                },
+            }
+        })
+    </script>
+</body>
+</html>

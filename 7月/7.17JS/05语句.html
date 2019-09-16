@@ -1,0 +1,106 @@
+<script>
+    // 求0到100的和
+    // let sum=0;
+    // for(let i=0;i<=100;i++)
+    // {
+    //     sum+=i;
+    // }
+    // console.log(sum)
+
+    //5050
+
+
+    // 操场一圈是400m   跑10圈   一共跑了多少m？
+
+    // let distance=0;
+    // for(let i=0;i<10;i++)
+    // {
+    //     distance+=400;
+    // }
+    // console.log(distance)
+    //4000
+
+    // 九九乘法表
+
+    // let str=""
+    // for(let i=1;i<=9;i++)
+    // {
+    //     for(let j=1;j<=i;j++)
+    //     {
+    //         str+=j+"*"+i+"="+j*i;
+    //         str+="  ";
+    //     }
+    //     str+="\n";
+    // }
+    // console.log(str);
+
+
+    // 百钱买百鸡  今有鸡翁一，值钱伍；鸡母一，值钱三；鸡鶵三，
+    //值钱一。凡百钱买鸡百只，问鸡翁、母、鶵各几何？
+
+    // for(let cock=0;cock<=100;cock++)
+    // {
+    //     for(let hen=0;hen<=100;hen++ )
+    //     {
+    //         for(let chick=0;chick<=100;chick++)
+    //             if(cock+hen+chick==100 && cock*5+hen*3+chick/3==100)
+    //                 console.log(cock,hen,chick);
+
+    //     }
+    // }
+    //  0 25 75
+    //  4 18 78
+    //  8 11 81
+    //  12 4 84
+
+    // 如果给你一堆数据[1,2,3,4,5,6]  把数据进行排序（冒泡排序）
+
+        // let arry=[1,2,3,4,5,6];
+        // for(let i=0;i<arry.length;i++)
+        // {
+        //     for(let j=0;j<arry.length-1-i;j++)
+        //         if(arry[j]<arry[j+1])
+        //         {
+        //             let temp=arry[j];
+        //             arry[j]=arry[j+1];
+        //             arry[j+1]=temp;
+        //         }
+        // }
+        // console.log(arry)
+
+
+        // 冒泡法排序
+
+        function bubblesort(newarry){
+            // 排序
+            for(let i=0;i<arry.length;i++)
+            {
+                for(let j=0;j<arry.length-1-i;j++)
+                {
+                    if(arry[j]>arry[j+1])
+                    {
+                        let temp=arry[j];
+                        arry[j]=arry[j+1];
+                        arry[j+1]=temp;
+                    }
+                }
+            }
+            // 返回排序后的新数组
+            return newarry;
+        }
+        let arry=[5,4,3,2,1];
+        let newarry=bubblesort(arry);
+        console.log(newarry)
+
+
+        // function bubblesort(newarry){
+        //     排序
+
+        //     return newarry;
+        // }
+        // let arry=[2,2,3,46,7,0];
+        // let newarry=bubblesort(arry);
+        // console.log(newarry);
+
+
+</script>

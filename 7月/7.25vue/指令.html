@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- <h1 v-text="msg"></h1>
+        <p v-text="name"></p>
+        <p v-html="name"></p>
+        <input type="text" v-model="msg">
+        <!-- 对于一个标签的属性值，不能使用插件表达式 -->
+        <!-- <a href="{{hrefname}}">百度</a> -->
+        <!-- <a v-bind:href="hrefname">百度</a> -->
+        <!-- <a :href="hrefname">百度</a> -->
+        <!-- v-bind可以用:代替 --> 
+
+        <!-- v-show -->
+
+        <!-- <p v-show="1">这是一个p标签</p> -->
+        <!-- <p v-show="true">这是一个p标签</p> -->
+        <!-- <p v-show="0">这是一个p标签</p> -->
+        <!-- <p v-show="-0">这是一个p标签</p> -->
+        <!-- <p v-show=" ">这是一个p标签</p> -->
+        <!-- <p v-show="false">这是一个p标签</p> -->
+
+        <!-- <p v-show="2>1">这是一个p标签</p> -->
+        <!-- <p v-show="2>3">这是一个p标签</p> -->
+
+        <!-- <p v-show="isShow" >这是一个p标签</p> -->
+        <!-- <p v-show="score>89 ">优秀</p> -->
+
+        <!-- v-if  v-else-->
+        <!-- <p v-if="isShow">这是一个p标签</p>
+        <p v-if="score>=60">及格</p>
+        <p v-else>不及格</p> -->
+
+        <!-- v-if  v-else-if  v-else -->
+        <!-- <p v-if="score>=90">A</p>  
+        <p v-else-if="score>=80">B</p>  
+        <p v-else-if="score>=70">C</p>  
+        <p v-else>D</p>   -->
+
+        <!-- v-for -->
+        <!-- <p v-for="(value,key,index) in links">{{value}}</p> -->
+        <!-- 对于数组来说第三个参数没有作用 -->
+        <!-- <p v-for="(value,key,index) in links">
+            {{value.name}} 连接: <a :href="value.link">{{value.name}}</a>
+        </p> -->
+        <!-- <p v-for="(value,key,index) in obj">{{value}}</p> -->
+        <!-- index无作用 -->
+        <!-- <p v-for="(value,key,index) in num">{{value}}</p> -->
+    </div>
+    <script>
+        var app=new Vue({
+            el:"#app",
+            data:{
+                // msg:"hello world",
+                // name:"<strong>wangcai</strong>",
+                // hrefname:"http://www.baidu.com",
+                //  isShow:true,
+                 score:90,
+
+                // links:["baidu","google","simo"]
+                // links:[
+                //     {name:"baidu",link:"http://www.baidu.com"},
+                //     {name:"google",link:"http://www.google.com"},
+                //     {name:"sina",link:"http://www.sina.com"},
+                // ]
+
+                // obj:{
+                //     name:"wangcai",
+                //     age:99
+                // },
+
+                // num:10,
+            }
+        })
+    </script>
+</body>
+</html>

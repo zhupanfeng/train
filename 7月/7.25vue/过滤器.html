@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- <p>{{pi}}</p>
+        <!-- 不带参数的过滤器 -->
+        <!-- <p>{{pi|fixed}}</p>  -->
+
+        <!-- 带参数的过滤器
+        <p>{{pi|fixed(1)}}</p>
+        <p>{{pi|fixed(2)}}</p>
+        <p>{{pi|fixed(3)}}</p>
+        <p>{{pi|fixed(4)}}</p> -->
+            <!-- 两个过滤器一起使用注意先后顺序 -->
+        <!-- <p>{{pi|fixed(3) |insertBefore}}</p> -->
+
+        <!-- 在前面加上自定义的符号 -->
+        <!-- <p>{{pi|fixed(2)|insertBefore("*")}}</p> -->
+    </div>
+    <script>
+        let app=new Vue({
+            el:"#app",
+            data:{
+                pi:3.141592653
+            },
+            filters:{
+                // // 没有参数 保留两位小数
+                // fixed(d){
+                //     return d.toFixed(2)
+                // },
+                // 带参数
+                fixed(d,n){
+                    return d.toFixed(n)
+                },
+                // // 给每一个数前面加$
+                // insertBefore(d){
+                //     return "$"+d;
+                // },
+                // insertBefore(d,s){
+                //     return s+d
+                // }
+            }
+        })
+    </script>
+</body>
+</html>

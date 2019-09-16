@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .abc{
+            background-color: red;
+        }
+    </style>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p :class="{abc:key%2==0}" v-for="(value,key,index) in num">{{value}}</p>
+        <tr>
+            <tr></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+
+    </div>
+    <script>
+        let app=new Vue({
+            el:"#app",
+            data:{
+                num:10,
+            }
+        })
+    </script>
+</body>
+</html>

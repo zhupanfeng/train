@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .abc{
+            color: red;
+        }
+        .def{
+            background-color: blue;
+        }
+        .g-h{
+            color: yellow;
+        }
+    </style>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- <p class="abc">这是一个p标签</p> -->
+        <!-- <p :class="classname">这是一个p标签</p> -->
+        <!-- 三元运算符 ? : -->
+        <!-- <p :class="ispass ? classname : ''">这是一个p标签</p> -->
+
+        <!-- <p :class="{abc:true}">这是一个p标签</p> -->
+        <!-- <p :class="{abc:ispass}">这是一个p标签</p> -->
+        <!-- <p :class="{abc:ispass,def:true}">这是一个p标签</p> -->
+        <!-- <p :class="{'g-h':true}">这是一个p标签</p> -->
+        <!-- <p :class="['abc','def']">这是一个p标签</p> -->
+
+
+        <!-- <p style="color:red">这是一个p标签</p> -->
+        <!-- <p :style="mystyle">这是一个p标签</p> -->
+    </div>
+    <script>
+        var app=new Vue({
+            el:"#app",
+            data:{
+                // classname:"abc",
+                // ispass:true,
+                // mystyle:{color:'red',backgroundColor:'blue'}
+            }
+        })
+    </script>
+</body>
+</html>

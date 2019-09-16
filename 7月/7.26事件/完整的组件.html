@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <my-collapse></my-collapse>
+    </div>
+    <template id="box">
+        <div>
+            <h1>这是一个小组件</h1>
+            <p>{{info}}</p>
+        </div>
+    </template>
+    <script>
+        // 定义组件
+        let MyCollapse={
+            template:"#box",
+            // 除了vm之外，后面子组件数据都是data函数,并且要return一个对象，数据放对象中
+            data(){
+                return{
+                    info:"hello world~"
+                }
+            }
+        }
+        // Vm叫根组件
+        let vm=new Vue({
+            el:"#app",
+            data:{},
+            components:{
+                // 注册一个组件（局部注册）
+                MyCollapse
+            }
+        })
+    </script>
+</body>
+</html>

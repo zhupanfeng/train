@@ -1,0 +1,94 @@
+<script>
+    //闭包
+    // function f(){
+    //     let a=110;
+    //     function g(){
+    //         console.log(a);
+    //     }
+    //     g()
+    // }
+    // f()
+</script>
+
+<script>
+    // debugger加断点
+    // function f(){
+    //     var a=1;
+    //     function g(){
+    //         console.log(a);
+    //     }
+    //     // 返回一个函数
+    //     return g;
+    // }
+    // f()();
+</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+</body>
+<script>
+    // var lis=document.getElementsByTagName("li");
+    // // for循环会立即执行
+    // 异步执行。耗时任务交给线程，主线程依次执行
+    // for(var i=0;i<lis.length;i++){
+    //     lis[i].onclick=function(){
+    //         console.info(i)
+    //     }
+    // }
+
+    // 解决：方案一:
+//   let形成块级作用域，每次循环执行一次
+    var lis=document.getElementsByTagName("li")
+
+    // for(let i=0;i<lis.length;i++)
+    // {
+    //     lis[i].onclick=function(){
+    //         console.log(i);
+    //     }
+    // }
+
+    // 方案二
+    // for(var i=0;i<lis.length;i++)
+    // {
+    //     // console.log(i);
+    //     lis[i].index=i;
+    //     lis[i].onclick=function(){
+    //         // 在监听器中事件源需要使用this来代码
+    //         // console.log(lis[i].index)
+    //         console.log(this.index)
+    //     }
+    // }
+
+    //  方案三，使用闭包，延长变量生命周期
+
+    // for(var i=0;i<lis.length;i++)
+    // {
+    //     lis[i].onclick=(function(index){
+    //         return function(){
+    //             console.log(index)
+    //         }
+    //     }(i))//实参
+    // }
+
+    for(var i=0;i<lis.length;i++)
+    {
+        lis[i].onclick=(function(index){
+            return function(){
+                console.log(index)
+            }
+        }(i))
+    }
+</script>
+</html>
