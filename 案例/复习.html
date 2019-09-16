@@ -1,0 +1,100 @@
+<script>
+
+    // 1、九九乘法表
+    // let str="";
+    // for(let i=1;i<=9;i++)
+    // {
+    //     for(let j=1;j<=i;j++)
+    //     {
+    //         str+=j+"*"+i+"="+i*j;
+    //         str+="  ";
+    //     }
+    //     str+='\n';
+    // }
+    // console.log(str);
+
+    // 2、冒泡排序
+
+    // arr=[5,4,3,2,1];
+    // for(let i=0;i<arr.length-1;i++)
+    // {
+    //     for(let j=0;j<arr.length-1-i;j++)
+    //     {
+    //         if(arr[j]>arr[j+1])
+    //         {let temp=arr[j+1];
+    //         arr[j+1]=arr[j];
+    //         arr[j]=temp;
+    //         }
+    //     }
+    // }
+    // console.log(arr);
+
+    // 3、选择排序
+
+    // let arr=[4,3,2,1]
+    // let index;
+    // for(let i=0;i<arr.length;i++)
+    // {
+    //     index=i;
+    //     for(let j=i+1;j<arr.length;j++)
+    //     {
+    //         if(arr[index]>arr[j])
+    //         {
+    //             index=j;
+    //         }
+    //     }
+    //     let c=arr[i];
+    //     arr[i]=arr[index];
+    //     arr[index]=c;
+    // }
+    // console.log(arr);
+
+    // 4、插入排序
+
+    let arr=[4,3,5,1];
+    let current;
+    let preindex;
+    for(let i=1;i<arr.length;i++)
+    {
+        current=arr[i];
+        preindex=i-1;
+        while(preindex>=0 && current<arr[preindex]){
+            arr[preindex+1]=arr[preindex];
+            preindex--;
+        }
+        arr[preindex+1]=current;
+    }
+    console.log(arr);
+</script>
+<script>
+    数组去重
+    let arr=[1,1,2,2,3,3]
+    let newArr=[];
+    let m={}
+    for(let i=0;i<arr.length;i++){
+        var t=arr[i]
+        if(m[t]){
+
+        }else{
+            newArr.push(arr[i])
+            m[t]=true;
+        }
+    }
+    console.log(newArr)
+</script>
+<script>
+let arr=[1,1,2,2,3,3]
+function k(arr){
+    let obj={}//里面保存每一个元素出现的次数
+    for(let i=0;i<arr.length;i++){
+        var t=arr[i]
+        if(obj.hasOwnProperty(t)){
+            obj[t]+=1;
+        }else{
+            obj[t]=1;
+        }
+    }
+    return obj;
+}
+console.log(k(arr))
+</script>
