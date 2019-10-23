@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./redux.js"></script>
+</head>
+<body>
+    <script>
+        // 状态 state
+         const initState = {
+            count:0
+        }
+        // action1
+        const increatement = {
+            type:"INCREAMENT"
+        }
+        // action2
+        const decreatement = {
+            type:"DECREAMENT"
+        }
+        // 要给管理一个老的状态和一个action，管理员给你返回一个新的状态
+        // 传递给管理的状态和最终管理返回给你的状态要完全一致
+        // 如果一个函数输入的数据结构和输出的数据结构一样，就叫做这个函数为纯函数
+        // reducer就是一个纯函数
+        function reducer(state=initState,action){
+            switch(action.type){
+                case "INCREAMENT":
+                    return {count:state.count+1}
+                case "DECREAMENT":
+                    return {count:state.count-1}
+                default:
+                    return state
+            }
+        }
+        // console.log(Redux)
+        // 当创建一个仓库时,需要手动给这个仓库分配一个管理员reducer
+        // createStore(reducer)表示创建仓库时给仓库分配管理员
+        let store=Redux.createStore(reducer);
+
+        // 订阅 当仓库中的数据发生改变时，会自动调用
+        store.subscribe(()=>{
+            // store.getState 获取状态
+            console.log("现在的状态为:",store.getState())
+        })
+
+
+        // 派发一个action给管理员一个action
+        store.dispatch(increatement);
+        store.dispatch(increatement);
+        store.dispatch(increatement);
+        store.dispatch(increatement);
+    </script>
+</body>
+</html>

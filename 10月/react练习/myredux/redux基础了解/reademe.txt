@@ -1,0 +1,20 @@
+redux
+    类似于vuex 是一个独立的状态管理器
+
+如何创建一个仓库?
+    把redux源码引入到项目，项目中就有一个Redux对象，通过Redux对象中的createStore就可以创建一个仓库
+
+store:仓库 仓库中放数据(状态)
+reducer:可以当做是仓库的管理员，当创建仓库时，需要给仓库指定一个reducer
+state:状态(数据)
+action:动作，修改状态的一个动作
+
+getState:用来从仓库中获取状态
+dispatch:派发一个action
+subscribe:订阅，当状态改变，就会指向回调函数
+
+action creator：创建一个action
+
+action分为同步的和异步的
+    同步的：action发出后，能立即算出state新值
+    异步：不能立即算出新值

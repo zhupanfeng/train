@@ -1,0 +1,35 @@
+webpack :
+
+    webpack-dev-server:对前端项目进行打包，存储在内存中
+    webpack:打包后存储在物理上磁盘
+    webpack-merge:把配置项合并
+    html-webpack-plugin:根据模板生成html文件
+    clean-webpack-plugin:清除不用的plugin
+
+    安装各种loader:
+        webpack默认不识别css.scss文件
+                css: css-loader  style-loader
+                scss: scss-loader css-loader style-loader
+        webpack默认不能识别图片
+                file-loader
+                url-loader:在图片小的情况下可以进行base64，避免二次请求
+    默认生产style(内部样式)
+        mini-css-extract-plugin：生成外部css文件
+        optimize-css-assert-webpack:对外部css进行压缩
+        terser-webpack-plugin:对js压缩(css压缩后，js没有再压缩))
+    在css3中某些属性需要加上前缀浏览器才能识别:
+        postcss-loader
+            autoprefixer:自动加前缀
+开发环境：
+    development:不压缩
+
+生产环境：   
+    production:压缩
+
+默认webpack不能识别js高级语法:
+    安装 @babel/core (核心) @babel/presets-env(预设babel/core需要依赖) babel-loader
+    需要配置 .babelrc文件
+    
+
+vue的工作流
+rezct的工作流

@@ -1,0 +1,15 @@
+{
+  "name": "cookie",
+  "version": "1.0.0",
+  "description": "http是无状态的，无法识别那个客户端访问了它\r Cookie session 会话机制",
+  "main": "cookie.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "uuid": "^3.3.3"
+  }
+}

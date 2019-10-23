@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./redux.js"></script>
+</head>
+<body>
+    <script>
+        // 状态 state
+         const initState = {
+            count:0
+        }
+        // increatement 函数的目的就是产生一个action
+        // increatement 函数就是一个action creator
+        function increatement(flag){
+            return {
+                type:"INCREAMENT",
+                flag
+            }
+        }
+        // action2
+        function decreatement(flag){
+            return {
+                type:"DECREAMENT",
+                flag
+            }
+        }
+        function reducer(state=initState,action){
+            switch(action.type){
+                case "INCREAMENT":
+                    return {count:state.count+action.flag}
+                case "DECREAMENT":
+                    return {count:state.count-action.flag}
+                default:
+                    return state
+            }
+        }
+        let store=Redux.createStore(reducer);
+        store.subscribe(()=>{
+            console.log("现在的状态为:",store.getState())
+        })
+
+
+        store.dispatch(increatement(1));
+        store.dispatch(increatement(2));
+        store.dispatch(decreatement(5));
+        store.dispatch(decreatement(7));
+    </script>
+</body>
+</html>

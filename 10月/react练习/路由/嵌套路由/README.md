@@ -1,0 +1,14 @@
+react路由：
+    1.安装模块 npm i react-router-dom -S
+    2.在入口文件引入import {BrowserRouter as Router} from "react-router-dom"
+    3.用<Router></Router>把根组件包裹
+    4.使用Route定义规则 App.js
+        import {Route,Link} from "react-router-dom"
+        <Route path="/" exact component={Home}></Route>
+        <Route path="/list" component={List}></Route>
+    5.使用link生成连接：
+        <Link to="/list">列表页</Link>
+
+路由分为：
+    基本路由、嵌套路由、动态路由、编程式路由、重定向
+    
