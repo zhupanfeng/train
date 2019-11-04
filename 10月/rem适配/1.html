@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        window.onload=function(){
+            let fs=document.documentElement.offsetWidth/750*100;
+        //    得到跟标签
+            document.documentElement.style.fontSize=fs+"px";
+        }
+    </script>
+    <style>
+        /* 750的图 200*200*/
+        html{
+            font-size: 100px;
+        }
+        .box{
+            width: 2rem;
+            height: 2rem;
+            background-color:red;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+
+    </div>
+</body>
+</html>
