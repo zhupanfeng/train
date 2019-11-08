@@ -1,0 +1,105 @@
+<script>
+    // -------------------bind 基础使用
+    // bind也可以让obj去借用f
+    // 和call一样，bind也可以改变this指向
+    // 和call不一样的是bind返回一个绑定后的函数 bind不会自动调用
+    // function f(){
+    //     console.log("f....")//f....
+    //     console.log(this)//{name: "wangcai"}
+    // }
+    // let obj={name:"wangcai"}
+    // let newF=f.bind(obj)
+    // newF()
+
+
+
+    // ----------------bind原理 借助了call或apply
+    // function f(){
+    //     console.log("f...")//f...
+    //     console.log(this)//{name: "wangcai"}
+    // }
+    // let obj={name:"wangcai"}
+    // Function.prototype.bind=function(context){
+    //     let that=this;
+    //     return function(){
+    //         // console.log(this)
+    //         // console.log(that)
+    //         return that.call(context)
+    //     }
+    // }
+    // letNew=f.bind(obj)
+    // letNew()
+
+    // ---------------------------bind传参问题 bind里面的参数
+    // function f(name,age,n,a){
+    //     console.log(name,age,n,a)
+    //     //hello world hahaha xxx
+    //     // hello world hahaha undefined
+    //     console.log(this)//{name: "wangcai"}
+    // }
+
+    // Function.prototype.bind=function(context){
+    //     let that=this;
+    //     // arguments是伪数组 变成真实数组
+    //     // arguments上面没有slice,需要借用slice
+    //     let newArr=Array.prototype.slice.call(arguments,1);
+    //     return function(){
+    //         return that.apply(context,newArr)
+    //     }
+    // }
+    // let obj={name:"wangcai"}
+    // let newF=f.bind(obj,"hello","world","hahaha",)
+    // newF("xxx")
+
+    // -------------------bind原理 传递问题
+
+    //  function f(name,age,n,a){
+    //     console.log(name,age,n,a)//hello world hahaha xxx
+    //     console.log(this)//{name: "wangcai"}
+    // }
+
+    // Function.prototype.bind=function(context){
+    //     let that=this;
+    //     // arguments是伪数组 变成真实数组
+    //     // arguments上面没有slice,需要借用slice
+    //     let newArr=Array.prototype.slice.call(arguments,1);
+    //     return function(){
+    //         let newArr2=Array.prototype.slice.call(arguments)
+    //         return that.apply(context,newArr.concat(newArr2))
+    //     }
+    // }
+    // let obj={name:"wangcai"}
+    // let newF=f.bind(obj,"hello","world","hahaha",)
+    // newF("xxx")
+
+    // ----------------绑定this之后的函数还可以被new
+// //     function f(){
+// //         console.dir(this)//f
+// //     }
+// //     let obj={name:"wangcai"}
+// //     let bindF=f.bind(obj)
+// //     // 如果绑定的函数被new了，new出来的是对象
+// //     // this就指向这个对象，this就指向instance
+// //    let instance=new bindF()
+
+
+
+// ----------------------
+function  f(name,age,n,a){
+    console.log(this)
+    console.log("f....")
+}
+
+Function.prototype.bind=function(context){
+    let that=this;
+    newArr=Array.prototype.slice.call(arguments,1)
+    return function(){
+        let newArr2=Array.prototype.slice.call(arguments)
+        return that.apply(context,newArr.concat(newArr2))
+    }
+}
+
+obj={name:"wangcai"}
+let newF=f.bind(obj,"wangcai",100,"kk")
+newF("xxx")
+</script>

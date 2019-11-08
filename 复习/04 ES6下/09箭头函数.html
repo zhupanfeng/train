@@ -1,0 +1,69 @@
+<script>
+// let a=110;//let 不挂在window上
+// let obj={
+//     a:666,
+//     f(){
+//         setTimeout(function(){
+//             // this表示window
+//             console.log(this.a)//undefined
+//         },1000)
+//     }
+// }
+// obj.f();
+  
+
+
+// var a=110;//  var声明挂在window上
+// let obj={
+//     a:666,
+//     f(){
+//         setTimeout(function(){
+//             // this表示window
+//             console.log(this.a)//110
+//         },1000)
+//     }
+// }
+// obj.f();
+
+
+
+// let  a=110;
+// let obj={
+//     a:666,
+//     f(){
+//         setTimeout(()=>{
+//             // 箭头函数没有this
+//             console.log(this.a)//666
+//         },1000)
+//     }
+// }
+// obj.f();
+
+
+
+// let  a=110;
+// let obj={
+//     a:666,
+//     f:()=>{
+//         setTimeout(()=>{
+//             // 箭头函数没有this
+//             console.log(this.a)//undefined
+//         },1000)
+//     }
+// }
+// obj.f();
+
+
+// var  a=110;
+// let obj={
+//     a:666,
+//     f:()=>{
+//         setTimeout(()=>{
+//             // 箭头函数没有this
+//             console.log(this.a)//110
+//         },1000)
+//     }
+// }
+// obj.f();
+
+</script>

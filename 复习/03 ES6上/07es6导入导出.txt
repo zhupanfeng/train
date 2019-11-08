@@ -1,0 +1,20 @@
+导出的可以是接口
+
+export{
+    a,b
+}
+import {a,b} from "./out.js"
+
+导入导出可以起别名，但需要一致
+import {a as name,b} from "./out.js"
+
+导入导出可以是动态的
+
+import 会提升 但最好放在最顶部
+
+----------------
+
+export default "hello"
+
+import hello from "./out.js
+export 不能导出一个值，但export default可以

@@ -1,0 +1,194 @@
+<script>
+    // call() 方法使用一个指定的this 值和单独给出的一个或多个参数来调用一个函数
+    // call可以改变当前this指向 指向call方法中的第一个参数
+    //  还可以让call前面的函数执行
+    // function f(){
+    //     console.log(this)//Object
+    // }
+    // let obj={name:"wangcai"}
+    // //让obj调用f方法
+    // f.call(obj)
+
+
+
+    // ------------传递参数
+    // function f(n1,n2){
+    //     return n1+n2;
+    // }
+    // let obj={}
+    // console.log(f.call(obj,1,2))//3
+
+
+
+    // call和apply区别 传参区别 apply参数必须用[]包裹起来
+
+    // function f(n1,n2){
+    //     return n1+n2;
+    // }
+    // let obj={}
+    // console.log(f.apply(obj,[1,2]))
+
+
+    // call和bind区别
+    // call 改变this指向 可以让函数执行
+    // bind 可以改变this指向 不会让函数执行，必须手动执行
+
+
+    // call的第一个参数是基本数据类型，this指向创建这个基本数据的构造器
+    // function f(n1,n2){
+    //    console.log(this)//Number {2} String {"wangcai"}
+    // }
+    // f.call(2,1,2)
+    // f.call("wangcai",2,3)
+
+// call的第一个参数可以是函数
+    // function f(){
+    //     console.log("f...")//f...
+    //     console.log(this)//ƒ g(){}
+    // }
+    // function g(){
+    //     console.log("g...")
+    // }
+    // f.call(g)
+
+
+    // call的链式调用
+    // function f(){
+    //     console.log("f...")
+    //     console.log(this)
+    // }
+    // function g(){
+    //     console.log("g...")//g...
+    // }
+    // f.call.call(g)
+
+
+    // ----------------------call原理
+    // function f(){
+    //     console.log("f...")
+    //     console.log(this)
+    // }
+    // Function.prototype.call=function(context){
+    //     // console.log(context)//{name: "wangcai"}
+
+    //     // f调用call this就是f
+    //     // console.log(this)//f
+    //     context.fn=this
+    // }
+    // let obj={name:"wangcai"};
+    // f.call(obj)
+
+    // ------------------call原理
+
+    // function f(a,b,c){
+    //     console.log(a,b,c)//1 2 3
+    //     console.log(this)//{name: "wancai"}  {name: "wancai", fn: ƒ}
+    //     // return a+b+c
+    // }
+
+    // Function.prototype.call=function(context){
+    //     context.fn=this;//给obj挂一个f
+    //     // console.log(arguments)
+    //     let args=[];
+    //     for(let i=1;i<arguments.length;i++){
+    //         // console.log(arguments[i])//1 2 3 得到传的参数
+    //         args.push('arguments['+i+']');
+    //     }
+    //     // console.log(args)//["arguments[1]", "arguments[2]", "arguments[3]", "arguments[4]"]
+    //     let r=eval('context.fn('+args+')')//eval可以让里面的代码像js一样执行
+    //     delete context.fn;
+    //     return r;
+    // }
+
+    // let obj={name:"wancai"}
+    // f.call(obj,1,2,3)
+
+    // ---------没有返回值
+    // function f1(){
+    //     console.log("f1...",arguments)
+    // }
+    // function f2(){
+    //     console.log("f2...")
+    // }
+
+
+    //     Function.prototype.call=function(context){
+    //         context.fn=this;
+    //         let args=[];
+    //         for(let i=1;i<arguments.length;i++){
+    //             args.push(arguments[i])
+    //         }
+    //         context.fn(...args)
+    //         delete context.fn
+    //     }
+
+    // f1.call(f2,1,2,3)
+    // console.dir(f2)
+
+
+
+    // ---------------call原理
+    // function f1(){
+    //     console.log("f1...",arguments)
+    //     // return arguments[0]
+    // }
+    // function f2(){
+    //     console.log("f2...")
+    // }
+
+    // Function.prototype.call=function(context){
+    //     context.fn=this;
+    //     let args=[];
+    //     for(let i=1;i<arguments.length;i++){
+    //         args.push(arguments[i])
+    //     }
+    //     let r=context.fn(...args)
+    //     delete context.fn
+    //     return r
+    // }
+
+    // let obj={name:"wangcai"}
+    // console.log(f1.call(obj,1,2,3))
+    // console.dir(f2)
+
+
+    // function f1(a,b,c){
+    //     console.log("f1...")//f1...
+    //     return a+b+c//6
+    // }
+    // Function.prototype.call=function(context){
+    //     // 处理context为空的情况 强制转换类型Object()
+    //     context=context? Object(context) :window
+    //     context.fn=this;
+    //     let args=[];
+    //     for(let i=1;i<arguments.length;i++){
+    //         args.push(arguments[i])
+    //     }
+    //     let r=context.fn(...args)
+    //     delete context.fn
+    //     return r
+    // }
+
+    // let obj
+    // console.log(f1.call(obj,1,2,3))
+
+
+    function f1(a,b,c){
+        console.log("f1...")//f1...
+        return a+b+c//6
+    }
+    Function.prototype.call=function(context){
+        context = context? Object(context) :window;
+        context.fn=this;
+        let args=[]
+        for(let i=1;i<arguments.length;i++){
+            args.push(arguments[i])
+        }
+        let r=context.fn(...args)
+        delete context.fn
+        return r;
+    }
+
+    let obj
+    console.log(f1.call(obj,1,2,3))
+</script>

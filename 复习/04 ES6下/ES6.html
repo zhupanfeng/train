@@ -1,0 +1,20 @@
+<script>
+    // <!-- 静态属性 node 不认识 -->
+class Animal{
+    static a=110;
+    static say(){
+        console.log("say...")
+    }
+    constructor(name){
+        this.name=name;
+    }
+    get age(){
+        return 666
+    }
+}
+let obj=new Animal("wangcai")
+// console.log(Animal.a)//110
+// console.log(Animal.say)//ƒ say(){}
+console.log(obj.hasOwnProperty("a"))//false
+console.log(obj.__proto__.hasOwnProperty("a"))//false
+</script>

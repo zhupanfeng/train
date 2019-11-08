@@ -1,0 +1,98 @@
+<script>
+    // ----------------------new 的原理
+    // function Person(name){
+    //     this.name=name;
+    // }
+    // Person.prototype.say=function(){
+    //     console.log("say....")
+    // }
+
+    // function myNew(){
+    //     // arguments 伪数组 Person "wangcai"
+    //     // console.log(arguments)
+    //     // 借用Array 的shif方法把数组中的第一个元素删除 返回被删除的元素
+    //     // unshif在数组前端添加一个或多个元素
+    //     // push在数组末端添加一个或多个
+    //     // pop把数组中最后一个元素删除
+    //     let Constructor=[].shift.call(arguments)
+    //     // console.log(Constructor) //Person
+    //     let obj={};
+    //     obj.__proto__=Constructor.prototype;//原型上的方法
+    //     Constructor.apply(obj,arguments)
+    //     return obj;
+    // }
+    // // let p=new Person("wangcai")
+    // let p=myNew(Person,"wangcai")
+    // console.log(p.name)//wangcai
+    // p.say()//say....
+
+
+
+    // 当new一个构造器时，构造器返回一个新的对象
+    // new出来的对象就是p
+    // function Person(name){
+    //     this.name=name;
+    //     return{}
+    // }
+    // Person.prototype.say=function(){
+    //     console.log("say....")
+    // }
+    // let p=new Person("wangcai")
+    // console.log(p.name)//undefined
+    // p.say()// p.say is not a function
+
+    // ----------------new 原理
+
+    // function Person(name){
+    //     this.name=name;
+    //     return{}
+    // }
+    // Person.prototype.say=function(){
+    //     console.log("say....")
+    // }
+
+
+    // function myNew(){
+    //     let Constructor=[].shift.call(arguments)
+    //     let obj={};
+    //     obj.__proto__=Constructor.prototype
+    //     let r=Constructor.apply(obj,arguments)
+    //     return r instanceof Object? r : obj;
+    // }
+
+    // let p=myNew(Person,"wangcai")
+    // console.log(p.name)/
+    // p.say()
+
+
+    // ------------------new 内部做了什么
+    // 创建一个新对象
+    // 将新对象的__proto__指向构造函数的propertype对象
+    // 将构造函数的作用域赋值给新对象
+    // 执行构造函数中的代码(为这个新对象添加属性)
+    // 返回新对象
+
+
+    // --------------------new原理
+
+    function Person(name){
+        this.name=name;
+        // return{
+
+        // }
+    }
+    Person.prototype.say=function(){
+        console.log("say...")
+    }
+    function Mynew(){
+        let Constructor=[].shift.call(arguments)
+        let obj={};
+        obj.__ptoto__=Constructor.prototype;
+        let r=Constructor.apply.apply(obj,arguments)
+         return r instanceof Object?r:obj
+    }
+
+    let p=new Person("wangcai")
+    console.log(p.name)
+    p.say()
+</script>
