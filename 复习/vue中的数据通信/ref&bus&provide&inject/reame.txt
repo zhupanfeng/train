@@ -1,0 +1,20 @@
+sync=属性传递+事件传递  .sync="counter" 默认传递update:counter
+v-model是value+input事件的语法糖
+如果只给子传递一个属性可以用v-model,如果是多个属性可以用.sync
+
+
+$attrs:
+    可以接收数据，默认可以作为标签的内部属性，inheriAttrs:false可以不作为标签属性
+    使用$attrs接收数据不能再使用props
+    传递属性时：v-bind="$attrs"，可以用来传递一些自己不用需要向下传递的data
+$listeners: 
+    可以用来传递一些方法事件 v-on="$listeners" 用时：@click="$listeners.click"
+ref: <Son2 ref="son2"></Son2>可以获取son2组件真实组件  使用:this.$refs.son2.xxx
+EventBus事件总线：
+    1、先在Vue原型上挂在一个$bus方法  Vue.prototype.$bus=new Vue() //直接在Vue原型上挂一个vm
+    2、订阅：在mounted钩子函数中this.$bus.$on=("change",funcation(){
+        console.log("....")
+    })
+    3、发布：mounted钩子函数中：this.$bus.$emit("change)
+provide和Inject  在父组件中提供数据，子孙中使用 不推荐使用
+               在使用数据时只会一层一层向上找，找到就不再向上找

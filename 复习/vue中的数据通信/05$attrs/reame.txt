@@ -1,0 +1,9 @@
+sync=属性传递+事件传递  .sync="counter" 默认传递update:counter
+v-model是value+input事件的语法糖
+如果只给子传递一个属性可以用v-model,如果是多个属性可以用.sync
+
+
+$attrs:
+    可以接收数据，默认可以作为标签的内部属性，inheriAttrs:false可以不作为标签属性
+    使用$attrs接收数据不能再使用props
+    传递属性时：v-bind="$attrs"，可以用来传递一些自己不用需要向下传递的data

@@ -1,0 +1,3 @@
+sync=属性传递+事件传递  .sync="counter" 默认传递update:counter
+v-model是value+input事件的语法糖
+如果只给子传递一个属性可以用v-model,如果是多个属性可以用.sync
